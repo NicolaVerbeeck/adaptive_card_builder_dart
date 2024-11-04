@@ -15,7 +15,8 @@ class Authentication {
     return {
       if (text != null) 'text': text,
       if (connectionName != null) 'connectionName': connectionName,
-      if (tokenExchangeResource != null) 'tokenExchangeResource': tokenExchangeResource!.toJson(),
+      if (tokenExchangeResource != null)
+        'tokenExchangeResource': tokenExchangeResource!.toJson(),
       if (buttons != null) 'buttons': buttons!.map((e) => e.toJson()).toList(),
     };
   }

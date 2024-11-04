@@ -16,7 +16,8 @@ class SubmitActionBuilderV1Dot0 with BaseActionBuilderV1Dot0 {
   }
 }
 
-class SubmitActionBuilderV1Dot1 extends SubmitActionBuilderV1Dot0 with BaseActionBuilderV1Dot1 {
+class SubmitActionBuilderV1Dot1 extends SubmitActionBuilderV1Dot0
+    with BaseActionBuilderV1Dot1 {
   @override
   SubmitAction build() {
     return SubmitAction(
@@ -27,7 +28,8 @@ class SubmitActionBuilderV1Dot1 extends SubmitActionBuilderV1Dot0 with BaseActio
   }
 }
 
-class SubmitActionBuilderV1Dot2 extends SubmitActionBuilderV1Dot1 with BaseActionBuilderV1Dot2 {
+class SubmitActionBuilderV1Dot2 extends SubmitActionBuilderV1Dot1
+    with BaseActionBuilderV1Dot2 {
   @override
   SubmitAction build() {
     return SubmitAction(
@@ -40,7 +42,8 @@ class SubmitActionBuilderV1Dot2 extends SubmitActionBuilderV1Dot1 with BaseActio
   }
 }
 
-class SubmitActionBuilderV1Dot3 extends SubmitActionBuilderV1Dot2 with BaseActionBuilderV1Dot2 {
+class SubmitActionBuilderV1Dot3 extends SubmitActionBuilderV1Dot2
+    with BaseActionBuilderV1Dot2 {
   AssociatedInputs? _associatedInputs;
 
   void setAssociatedInputs(AssociatedInputs associatedInputs) {
@@ -60,7 +63,8 @@ class SubmitActionBuilderV1Dot3 extends SubmitActionBuilderV1Dot2 with BaseActio
   }
 }
 
-class SubmitActionBuilderV1Dot5 extends SubmitActionBuilderV1Dot3 with BaseActionBuilderV1Dot5 {
+class SubmitActionBuilderV1Dot5 extends SubmitActionBuilderV1Dot3
+    with BaseActionBuilderV1Dot5 {
   @override
   SubmitAction build() {
     return SubmitAction(

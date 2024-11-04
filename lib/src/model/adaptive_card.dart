@@ -47,13 +47,16 @@ class AdaptiveCard {
       if (body != null) 'body': body!.map((e) => e.toJson()).toList(),
       if (selectAction != null) 'selectAction': selectAction!.toJson(),
       if (fallbackText != null) 'fallbackText': fallbackText,
-      if (backgroundImage?.isLeft == true) 'backgroundImage': backgroundImage!.left!.toJson(),
-      if (backgroundImage?.isRight == true) 'backgroundImage': backgroundImage!.right!.toString(),
+      if (backgroundImage?.isLeft == true)
+        'backgroundImage': backgroundImage!.left!.toJson(),
+      if (backgroundImage?.isRight == true)
+        'backgroundImage': backgroundImage!.right!.toString(),
       if (minHeight != null) 'minHeight': minHeight,
       if (rtl != null) 'rtl': rtl,
       if (speak != null) 'speak': speak,
       if (lang != null) 'lang': lang,
-      if (verticalContentAlignment != null) 'verticalContentAlignment': verticalContentAlignment!.toJson(),
+      if (verticalContentAlignment != null)
+        'verticalContentAlignment': verticalContentAlignment!.toJson(),
     };
     return json;
   }

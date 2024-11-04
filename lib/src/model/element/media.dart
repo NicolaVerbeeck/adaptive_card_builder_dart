@@ -6,20 +6,20 @@ class Media extends Element {
   final String? altText;
 
   Media({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required this.sources,
-    required this.poster,
-    required this.altText,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.poster,
+    this.altText,
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    json.addAll({
+  void populateJson(Map<String, dynamic> container) {
+    container.addAll({
       'type': 'Media',
       'sources': sources.map((e) => e.toJson()).toList(),
       if (poster != null) 'poster': poster.toString(),

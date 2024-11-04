@@ -1,4 +1,4 @@
-import 'package:adaptive_card_builder/src/builder/action/action_builder.dart';
+import 'package:adaptive_card_builder/src/builder/action/versioned_action_builder.dart';
 import 'package:adaptive_card_builder/src/builder/background_image_builder.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
 import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
@@ -23,7 +23,7 @@ class AdaptiveCardBuilderFactory {
   static AdaptiveCardBuilderV1Dot5 v1_5() => AdaptiveCardBuilderV1Dot5();
 }
 
-class AdaptiveCardBuilderV1Dot0 {
+class AdaptiveCardBuilderV1Dot0 with V1Dot0ActionBuilder {
   @protected
   List<Element>? _elements;
   @protected
@@ -42,27 +42,10 @@ class AdaptiveCardBuilderV1Dot0 {
     _elements!.add(element);
   }
 
+  @override
   void addAction(CardAction action) {
     _actions ??= <CardAction>[];
     _actions!.add(action);
-  }
-
-  void addSubmitAction(void Function(SubmitActionBuilderV1Dot0) builder) {
-    final actionBuilder = SubmitActionBuilderV1Dot0();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  void addOpenUrlAction(Uri url, void Function(OpenUrlActionBuilderV1Dot0) builder) {
-    final actionBuilder = OpenUrlActionBuilderV1Dot0(url);
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  void addShowCardAction(void Function(ShowCardActionBuilderV1Dot0) builder) {
-    final actionBuilder = ShowCardActionBuilderV1Dot0();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
   }
 
   void setFallbackText(String fallbackText) {
@@ -94,39 +77,20 @@ class AdaptiveCardBuilderV1Dot0 {
   }
 }
 
-class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0 {
+class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0
+    with V1Dot1ActionBuilder {
   @protected
   VerticalContentAlignment? _verticalContentAlignment;
   @protected
   ISelectAction? _selectAction;
 
-  void setVerticalContentAlignment(VerticalContentAlignment verticalContentAlignment) {
+  void setVerticalContentAlignment(
+      VerticalContentAlignment verticalContentAlignment) {
     _verticalContentAlignment = verticalContentAlignment;
   }
 
   void setSelectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
-  }
-
-  @override
-  void addSubmitAction(void Function(SubmitActionBuilderV1Dot1) builder) {
-    final actionBuilder = SubmitActionBuilderV1Dot1();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addOpenUrlAction(Uri url, void Function(OpenUrlActionBuilderV1Dot1) builder) {
-    final actionBuilder = OpenUrlActionBuilderV1Dot1(url);
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addShowCardAction(void Function(ShowCardActionBuilderV1Dot1) builder) {
-    final actionBuilder = ShowCardActionBuilderV1Dot1();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
   }
 
   @override
@@ -145,7 +109,8 @@ class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0 {
   }
 }
 
-class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1 {
+class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1
+    with V1Dot2ActionBuilder {
   @protected
   String? _minHeight;
 
@@ -153,40 +118,11 @@ class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1 {
     _minHeight = minHeight;
   }
 
-  void setBackgroundImage(Uri url, void Function(BackgroundImageBuilder) backgroundImage) {
+  void setBackgroundImage(
+      Uri url, void Function(BackgroundImageBuilder) backgroundImage) {
     final builder = BackgroundImageBuilder(url);
     backgroundImage(builder);
     _backgroundImage = Union.left(builder.build());
-  }
-
-  @override
-  void addSubmitAction(void Function(SubmitActionBuilderV1Dot2) builder) {
-    final actionBuilder = SubmitActionBuilderV1Dot2();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addOpenUrlAction(Uri url, void Function(OpenUrlActionBuilderV1Dot2) builder) {
-    final actionBuilder = OpenUrlActionBuilderV1Dot2(url);
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addShowCardAction(void Function(ShowCardActionBuilderV1Dot2) builder) {
-    final actionBuilder = ShowCardActionBuilderV1Dot2();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  void addToggleVisibilityAction(
-    List<TargetElement> elements,
-    void Function(ToggleVisibilityActionBuilderV1Dot2) builder,
-  ) {
-    final actionBuilder = ToggleVisibilityActionBuilderV1Dot2(elements);
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
   }
 
   @override
@@ -206,7 +142,8 @@ class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1 {
   }
 }
 
-class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot2 {
+class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot2
+    with V1Dot4ActionBuilder {
   @protected
   Refresh? _refresh;
   @protected
@@ -218,12 +155,6 @@ class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot2 {
 
   void setAuthentication(Authentication authentication) {
     _authentication = authentication;
-  }
-
-  void addExecuteAction(void Function(ExecuteActionBuilderV1Dot4) builder) {
-    final actionBuilder = ExecuteActionBuilderV1Dot4();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
   }
 
   @override
@@ -245,50 +176,13 @@ class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot2 {
   }
 }
 
-class AdaptiveCardBuilderV1Dot5 extends AdaptiveCardBuilderV1Dot4 {
+class AdaptiveCardBuilderV1Dot5 extends AdaptiveCardBuilderV1Dot4
+    with V1Dot5ActionBuilder {
   @protected
   bool? _rtl;
 
   void setRtl(bool rtl) {
     _rtl = rtl;
-  }
-
-  @override
-  void addSubmitAction(void Function(SubmitActionBuilderV1Dot5) builder) {
-    final actionBuilder = SubmitActionBuilderV1Dot5();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addOpenUrlAction(Uri url, void Function(OpenUrlActionBuilderV1Dot5) builder) {
-    final actionBuilder = OpenUrlActionBuilderV1Dot5(url);
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addShowCardAction(void Function(ShowCardActionBuilderV1Dot5) builder) {
-    final actionBuilder = ShowCardActionBuilderV1Dot5();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addToggleVisibilityAction(
-    List<TargetElement> elements,
-    void Function(ToggleVisibilityActionBuilderV1Dot5) builder,
-  ) {
-    final actionBuilder = ToggleVisibilityActionBuilderV1Dot5(elements);
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
-  }
-
-  @override
-  void addExecuteAction(void Function(ExecuteActionBuilderV1Dot5) builder) {
-    final actionBuilder = ExecuteActionBuilderV1Dot5();
-    builder(actionBuilder);
-    addAction(actionBuilder.build());
   }
 
   @override

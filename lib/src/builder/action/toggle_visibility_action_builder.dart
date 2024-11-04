@@ -1,6 +1,10 @@
 part of 'action_builder.dart';
 
-class ToggleVisibilityActionBuilderV1Dot2 with BaseActionBuilderV1Dot0, BaseActionBuilderV1Dot1, BaseActionBuilderV1Dot2 {
+class ToggleVisibilityActionBuilderV1Dot2
+    with
+        BaseActionBuilderV1Dot0,
+        BaseActionBuilderV1Dot1,
+        BaseActionBuilderV1Dot2 {
   final List<TargetElement> _targetElements;
 
   ToggleVisibilityActionBuilderV1Dot2(this._targetElements);
@@ -21,7 +25,8 @@ class ToggleVisibilityActionBuilderV1Dot2 with BaseActionBuilderV1Dot0, BaseActi
   }
 }
 
-class ToggleVisibilityActionBuilderV1Dot5 extends ToggleVisibilityActionBuilderV1Dot2 with BaseActionBuilderV1Dot5 {
+class ToggleVisibilityActionBuilderV1Dot5
+    extends ToggleVisibilityActionBuilderV1Dot2 with BaseActionBuilderV1Dot5 {
   ToggleVisibilityActionBuilderV1Dot5(super.targetElements);
 
   @override

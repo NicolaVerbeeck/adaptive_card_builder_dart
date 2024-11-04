@@ -28,17 +28,18 @@ class Container extends Element {
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    json.addAll({
+  void populateJson(Map<String, dynamic> container) {
+    container.addAll({
       'type': 'Container',
       'items': items.map((e) => e.toJson()).toList(),
       if (selectAction != null) 'selectAction': selectAction!.toJson(),
       if (style != null) 'style': style!.toJson(),
-      if (verticalContentAlignment != null) 'verticalContentAlignment': verticalContentAlignment!.toJson(),
+      if (verticalContentAlignment != null)
+        'verticalContentAlignment': verticalContentAlignment!.toJson(),
       if (bleed != null) 'bleed': bleed,
       if (backgroundImage != null)
         'backgroundImage': backgroundImage!.fold(
-          (value) => value.toJson(),
+          (value) => value!.toJson(),
           (value) => value.toString(),
         ),
       'minHeight': minHeight,

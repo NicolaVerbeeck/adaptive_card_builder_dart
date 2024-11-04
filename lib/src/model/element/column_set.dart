@@ -24,15 +24,16 @@ class ColumnSet extends Element {
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    json.addAll({
+  void populateJson(Map<String, dynamic> container) {
+    container.addAll({
       'type': 'ColumnSet',
       if (columns != null) 'columns': columns!.map((e) => e.toJson()).toList(),
       if (selectAction != null) 'selectAction': selectAction!.toJson(),
       if (style != null) 'style': style!.toJson(),
       if (bleed != null) 'bleed': bleed,
       if (minHeight != null) 'minHeight': minHeight,
-      if (horizontalAlignment != null) 'horizontalAlignment': horizontalAlignment!.toJson(),
+      if (horizontalAlignment != null)
+        'horizontalAlignment': horizontalAlignment!.toJson(),
     });
   }
 }
@@ -77,13 +78,13 @@ class Column {
       if (items != null) 'items': items!.map((e) => e.toJson()).toList(),
       if (backgroundImage != null)
         'backgroundImage': backgroundImage!.fold(
-          (value) => value.toJson(),
-          (value) => value.toString(),
+          (value) => value!.toJson(),
+          (value) => value!.toString(),
         ),
       if (bleed != null) 'bleed': bleed,
       if (fallback != null)
         'fallback': fallback!.fold(
-          (value) => value.toJson(),
+          (value) => value!.toJson(),
           (value) => value,
         ),
       if (minHeight != null) 'minHeight': minHeight,
@@ -92,7 +93,8 @@ class Column {
       if (spacing != null) 'spacing': spacing!.toJson(),
       if (selectAction != null) 'selectAction': selectAction!.toJson(),
       if (style != null) 'style': style!.toJson(),
-      if (verticalContentAlignment != null) 'verticalContentAlignment': verticalContentAlignment!.toJson(),
+      if (verticalContentAlignment != null)
+        'verticalContentAlignment': verticalContentAlignment!.toJson(),
       if (width != null)
         'width': width!.fold(
           (value) => value,

@@ -1,13 +1,17 @@
-
-class Union<L,R> {
+class Union<L, R> {
+  final bool _isLeft;
   final L? left;
   final R? right;
 
-  Union.left(this.left) : right = null;
-  Union.right(this.right) : left = null;
+  Union.left(this.left)
+      : right = null,
+        _isLeft = true;
+  Union.right(this.right)
+      : left = null,
+        _isLeft = false;
 
-  bool get isLeft => left != null;
-  bool get isRight => right != null;
+  bool get isLeft => _isLeft;
+  bool get isRight => !_isLeft;
 
   @override
   String toString() {
@@ -18,11 +22,11 @@ class Union<L,R> {
     }
   }
 
-  T fold<T>(T Function(L) onLeft, T Function(R) onRight) {
+  T fold<T>(T Function(L?) onLeft, T Function(R?) onRight) {
     if (isLeft) {
-      return onLeft(left!);
+      return onLeft(left);
     } else {
-      return onRight(right!);
+      return onRight(right);
     }
   }
 }

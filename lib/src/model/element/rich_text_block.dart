@@ -5,14 +5,14 @@ class RichTextBlock extends Element {
   final HorizontalAlignment? horizontalAlignment;
 
   RichTextBlock({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required this.inlines,
-    required this.horizontalAlignment,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.horizontalAlignment,
   });
 
   @override
@@ -22,10 +22,11 @@ class RichTextBlock extends Element {
       'inlines': inlines
           .map((e) => e.fold(
                 (value) => value,
-                (value) => value.toJson(),
+                (value) => value!.toJson(),
               ))
           .toList(),
-      if (horizontalAlignment != null) 'horizontalAlignment': horizontalAlignment!.toJson(),
+      if (horizontalAlignment != null)
+        'horizontalAlignment': horizontalAlignment!.toJson(),
     });
   }
 }

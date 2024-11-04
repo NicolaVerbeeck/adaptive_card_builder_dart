@@ -15,7 +15,8 @@ class OpenUrlActionBuilderV1Dot0 with BaseActionBuilderV1Dot0 {
   }
 }
 
-class OpenUrlActionBuilderV1Dot1 extends OpenUrlActionBuilderV1Dot0 with BaseActionBuilderV1Dot1 {
+class OpenUrlActionBuilderV1Dot1 extends OpenUrlActionBuilderV1Dot0
+    with BaseActionBuilderV1Dot1 {
   OpenUrlActionBuilderV1Dot1(super.url);
 
   @override
@@ -29,7 +30,8 @@ class OpenUrlActionBuilderV1Dot1 extends OpenUrlActionBuilderV1Dot0 with BaseAct
   }
 }
 
-class OpenUrlActionBuilderV1Dot2 extends OpenUrlActionBuilderV1Dot1 with BaseActionBuilderV1Dot2 {
+class OpenUrlActionBuilderV1Dot2 extends OpenUrlActionBuilderV1Dot1
+    with BaseActionBuilderV1Dot2 {
   OpenUrlActionBuilderV1Dot2(super.url);
 
   @override
@@ -45,7 +47,8 @@ class OpenUrlActionBuilderV1Dot2 extends OpenUrlActionBuilderV1Dot1 with BaseAct
   }
 }
 
-class OpenUrlActionBuilderV1Dot5 extends OpenUrlActionBuilderV1Dot2 with BaseActionBuilderV1Dot5 {
+class OpenUrlActionBuilderV1Dot5 extends OpenUrlActionBuilderV1Dot2
+    with BaseActionBuilderV1Dot5 {
   OpenUrlActionBuilderV1Dot5(super.url);
 
   @override

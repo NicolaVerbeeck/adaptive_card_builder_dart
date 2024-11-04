@@ -26,16 +26,19 @@ class Table extends Element {
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    json.addAll({
+  void populateJson(Map<String, dynamic> container) {
+    container.addAll({
       'type': 'Table',
       if (columns != null) 'columns': columns!.map((e) => e.toJson()).toList(),
       if (rows != null) 'rows': rows!.map((e) => e.toJson()).toList(),
       if (firstRowAsHeader != null) 'firstRowAsHeader': firstRowAsHeader,
       if (showGridLines != null) 'showGridLines': showGridLines,
       if (gridStyle != null) 'gridStyle': gridStyle!.toJson(),
-      if (horizontalCellContentAlignment != null) 'horizontalCellContentAlignment': horizontalCellContentAlignment!.toJson(),
-      if (verticalCellContentAlignment != null) 'verticalCellContentAlignment': verticalCellContentAlignment!.toJson(),
+      if (horizontalCellContentAlignment != null)
+        'horizontalCellContentAlignment':
+            horizontalCellContentAlignment!.toJson(),
+      if (verticalCellContentAlignment != null)
+        'verticalCellContentAlignment': verticalCellContentAlignment!.toJson(),
     });
   }
 }
@@ -53,8 +56,11 @@ class TableColumnDefinition {
 
   Map<String, dynamic> toJson() {
     return {
-      if (horizontalCellContentAlignment != null) 'horizontalCellContentAlignment': horizontalCellContentAlignment!.toJson(),
-      if (verticalCellContentAlignment != null) 'verticalCellContentAlignment': verticalCellContentAlignment!.toJson(),
+      if (horizontalCellContentAlignment != null)
+        'horizontalCellContentAlignment':
+            horizontalCellContentAlignment!.toJson(),
+      if (verticalCellContentAlignment != null)
+        'verticalCellContentAlignment': verticalCellContentAlignment!.toJson(),
       if (width != null)
         'width': width!.fold(
           (value) => value,
@@ -80,8 +86,11 @@ class TableRow {
   Map<String, dynamic> toJson() {
     return {
       if (cells != null) 'cells': cells!.map((e) => e.toJson()).toList(),
-      if (horizontalCellContentAlignment != null) 'horizontalCellContentAlignment': horizontalCellContentAlignment!.toJson(),
-      if (verticalCellContentAlignment != null) 'verticalCellContentAlignment': verticalCellContentAlignment!.toJson(),
+      if (horizontalCellContentAlignment != null)
+        'horizontalCellContentAlignment':
+            horizontalCellContentAlignment!.toJson(),
+      if (verticalCellContentAlignment != null)
+        'verticalCellContentAlignment': verticalCellContentAlignment!.toJson(),
       if (style != null) 'style': style!.toJson(),
     };
   }
@@ -106,10 +115,10 @@ class TableCell extends Container {
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    super.populateJson(json);
+  void populateJson(Map<String, dynamic> container) {
+    super.populateJson(container);
     // Override the type
-    json.addAll({
+    container.addAll({
       'type': 'TableCell',
     });
   }

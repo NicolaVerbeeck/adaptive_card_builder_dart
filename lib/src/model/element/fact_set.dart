@@ -14,8 +14,8 @@ class FactSet extends Element {
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    json.addAll({
+  void populateJson(Map<String, dynamic> container) {
+    container.addAll({
       'type': 'FactSet',
       'facts': facts.map((e) => e.toJson()).toList(),
     });

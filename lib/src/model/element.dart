@@ -5,22 +5,22 @@ import 'package:adaptive_card_builder/src/model/union.dart';
 import 'package:meta/meta.dart';
 
 part 'element/action_set.dart';
-part 'element/text_block.dart';
-part 'element/image.dart';
-part 'element/media.dart';
-part 'element/rich_text_block.dart';
-part 'element/container.dart';
 part 'element/column_set.dart';
+part 'element/container.dart';
 part 'element/fact_set.dart';
+part 'element/image.dart';
 part 'element/image_set.dart';
-part 'element/table.dart';
-part 'element/input_element.dart';
-part 'element/input/input_text.dart';
-part 'element/input/input_number.dart';
+part 'element/input/input_choice_set.dart';
 part 'element/input/input_date.dart';
+part 'element/input/input_number.dart';
+part 'element/input/input_text.dart';
 part 'element/input/input_time.dart';
 part 'element/input/input_toggle.dart';
-part 'element/input/input_choice_set.dart';
+part 'element/input_element.dart';
+part 'element/media.dart';
+part 'element/rich_text_block.dart';
+part 'element/table.dart';
+part 'element/text_block.dart';
 
 sealed class Element {
   final Union<Element, bool>? fallback;
@@ -31,12 +31,12 @@ sealed class Element {
   final bool? isVisible;
 
   Element({
-    required this.fallback,
-    required this.height,
-    required this.separator,
-    required this.spacing,
-    required this.id,
-    required this.isVisible,
+    this.fallback,
+    this.height,
+    this.separator,
+    this.spacing,
+    this.id,
+    this.isVisible,
   });
 
   Map<String, dynamic> toJson() {

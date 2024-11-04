@@ -1,4 +1,3 @@
-
 import 'package:adaptive_card_builder/src/model/background_image.dart';
 
 class BackgroundImageBuilder {

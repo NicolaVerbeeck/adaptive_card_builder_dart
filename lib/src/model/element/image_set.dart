@@ -16,8 +16,8 @@ class ImageSet extends Element {
   });
 
   @override
-  void populateJson(Map<String, dynamic> json) {
-    json.addAll({
+  void populateJson(Map<String, dynamic> container) {
+    container.addAll({
       'type': 'ImageSet',
       'images': images.map((e) => e.toJson()).toList(),
       if (imageSize != null) 'imageSize': imageSize!.toJson(),

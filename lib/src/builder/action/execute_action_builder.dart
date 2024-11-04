@@ -1,6 +1,10 @@
 part of 'action_builder.dart';
 
-class ExecuteActionBuilderV1Dot4 with BaseActionBuilderV1Dot0, BaseActionBuilderV1Dot1, BaseActionBuilderV1Dot2 {
+class ExecuteActionBuilderV1Dot4
+    with
+        BaseActionBuilderV1Dot0,
+        BaseActionBuilderV1Dot1,
+        BaseActionBuilderV1Dot2 {
   String? _verb;
   dynamic _data;
   AssociatedInputs? _associatedInputs;
@@ -30,7 +34,8 @@ class ExecuteActionBuilderV1Dot4 with BaseActionBuilderV1Dot0, BaseActionBuilder
   }
 }
 
-class ExecuteActionBuilderV1Dot5 extends ExecuteActionBuilderV1Dot4 with BaseActionBuilderV1Dot5 {
+class ExecuteActionBuilderV1Dot5 extends ExecuteActionBuilderV1Dot4
+    with BaseActionBuilderV1Dot5 {
   @override
   ExecuteAction build() {
     return ExecuteAction(

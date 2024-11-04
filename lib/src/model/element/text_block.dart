@@ -13,22 +13,22 @@ class TextBlock extends Element {
   final TextBlockStyle? style;
 
   TextBlock({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required this.text,
-    required this.color,
-    required this.fontType,
-    required this.horizontalAlignment,
-    required this.isSubtle,
-    required this.maxLines,
-    required this.size,
-    required this.weight,
-    required this.wrap,
-    required this.style,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.color,
+    this.fontType,
+    this.horizontalAlignment,
+    this.isSubtle,
+    this.maxLines,
+    this.size,
+    this.weight,
+    this.wrap,
+    this.style,
   });
 
   @override
@@ -38,7 +38,8 @@ class TextBlock extends Element {
       'text': text,
       if (color != null) 'color': color!.toJson(),
       if (fontType != null) 'fontType': fontType!.toJson(),
-      if (horizontalAlignment != null) 'horizontalAlignment': horizontalAlignment!.toJson(),
+      if (horizontalAlignment != null)
+        'horizontalAlignment': horizontalAlignment!.toJson(),
       if (isSubtle != null) 'isSubtle': isSubtle,
       if (maxLines != null) 'maxLines': maxLines,
       if (size != null) 'size': size!.toJson(),

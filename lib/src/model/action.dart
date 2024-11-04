@@ -81,7 +81,8 @@ class ExecuteAction extends ISelectAction {
       'type': 'Action.Execute',
       if (verb != null) 'verb': verb,
       if (data != null) 'data': data,
-      if (associatedInputs != null) 'associatedInputs': associatedInputs!.toJson(),
+      if (associatedInputs != null)
+        'associatedInputs': associatedInputs!.toJson(),
     });
   }
 }
@@ -132,7 +133,8 @@ class SubmitAction extends ISelectAction {
     container.addAll({
       'type': 'Action.Submit',
       if (data != null) 'data': data,
-      if (associatedInputs != null) 'associatedInputs': associatedInputs!.toJson(),
+      if (associatedInputs != null)
+        'associatedInputs': associatedInputs!.toJson(),
     });
   }
 }
