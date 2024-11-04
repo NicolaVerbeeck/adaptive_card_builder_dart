@@ -10,7 +10,7 @@ import 'package:adaptive_card_builder/src/model/refresh.dart';
 import 'package:adaptive_card_builder/src/model/union.dart';
 import 'package:meta/meta.dart';
 
-class AdaptiveCardBuilderFactory {
+abstract class AdaptiveCardBuilderFactory {
   static AdaptiveCardBuilderV1Dot0 v1_0() => AdaptiveCardBuilderV1Dot0();
 
   static AdaptiveCardBuilderV1Dot1 v1_1() => AdaptiveCardBuilderV1Dot1();
