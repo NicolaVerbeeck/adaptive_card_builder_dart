@@ -7,24 +7,24 @@ class Container extends Element {
   final VerticalContentAlignment? verticalContentAlignment;
   final bool? bleed;
   final Union<BackgroundImage, Uri>? backgroundImage;
-  final String minHeight;
+  final String? minHeight;
   final bool? rtl;
 
   Container({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required this.items,
-    required this.selectAction,
-    required this.style,
-    required this.verticalContentAlignment,
-    required this.bleed,
-    required this.backgroundImage,
-    required this.minHeight,
-    required this.rtl,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.selectAction,
+    this.style,
+    this.verticalContentAlignment,
+    this.bleed,
+    this.backgroundImage,
+    this.minHeight,
+    this.rtl,
   });
 
   @override
@@ -42,7 +42,7 @@ class Container extends Element {
           (value) => value!.toJson(),
           (value) => value.toString(),
         ),
-      'minHeight': minHeight,
+      if (minHeight != null) 'minHeight': minHeight,
       if (rtl != null) 'rtl': rtl,
     });
   }

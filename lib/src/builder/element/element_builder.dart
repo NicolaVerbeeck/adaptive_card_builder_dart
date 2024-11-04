@@ -6,6 +6,7 @@ import 'package:adaptive_card_builder/src/model/union.dart';
 import 'package:meta/meta.dart';
 
 part 'action_set_builder.dart';
+part 'container_builder.dart';
 part 'image_builder.dart';
 part 'media_builder.dart';
 part 'rich_text_block_builder.dart';
