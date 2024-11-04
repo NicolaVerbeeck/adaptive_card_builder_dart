@@ -1,5 +1,6 @@
 import 'package:adaptive_card_builder/src/builder/action/versioned_action_builder.dart';
 import 'package:adaptive_card_builder/src/builder/background_image_builder.dart';
+import 'package:adaptive_card_builder/src/builder/element/element_container_helper.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
 import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/authentication.dart';
@@ -16,14 +17,15 @@ class AdaptiveCardBuilderFactory {
 
   static AdaptiveCardBuilderV1Dot2 v1_2() => AdaptiveCardBuilderV1Dot2();
 
-  static AdaptiveCardBuilderV1Dot2 v1_3() => AdaptiveCardBuilderV1Dot2();
+  static AdaptiveCardBuilderV1Dot2 v1_3() => AdaptiveCardBuilderV1Dot3();
 
   static AdaptiveCardBuilderV1Dot4 v1_4() => AdaptiveCardBuilderV1Dot4();
 
   static AdaptiveCardBuilderV1Dot5 v1_5() => AdaptiveCardBuilderV1Dot5();
 }
 
-class AdaptiveCardBuilderV1Dot0 with V1Dot0ActionBuilder {
+class AdaptiveCardBuilderV1Dot0
+    with V1Dot0ActionBuilder, ElementContainerHelperV1Dot0 {
   @protected
   List<Element>? _elements;
   @protected
@@ -37,6 +39,7 @@ class AdaptiveCardBuilderV1Dot0 with V1Dot0ActionBuilder {
   @protected
   String? _lang;
 
+  @override
   void addElement(Element element) {
     _elements ??= <Element>[];
     _elements!.add(element);
@@ -78,7 +81,7 @@ class AdaptiveCardBuilderV1Dot0 with V1Dot0ActionBuilder {
 }
 
 class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0
-    with V1Dot1ActionBuilder {
+    with V1Dot1ActionBuilder, ElementContainerHelperV1Dot1 {
   @protected
   VerticalContentAlignment? _verticalContentAlignment;
   @protected
@@ -110,7 +113,7 @@ class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0
 }
 
 class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1
-    with V1Dot2ActionBuilder {
+    with V1Dot2ActionBuilder, ElementContainerHelperV1Dot2 {
   @protected
   String? _minHeight;
 
@@ -142,8 +145,27 @@ class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1
   }
 }
 
-class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot2
-    with V1Dot4ActionBuilder {
+class AdaptiveCardBuilderV1Dot3 extends AdaptiveCardBuilderV1Dot2
+    with V1Dot2ActionBuilder, ElementContainerHelperV1Dot3 {
+  @override
+  AdaptiveCard build() {
+    return AdaptiveCard(
+      version: AdaptiveCardVersion.v1_2,
+      body: _elements,
+      actions: _actions,
+      fallbackText: _fallbackText,
+      backgroundImage: _backgroundImage,
+      speak: _speak,
+      lang: _lang,
+      verticalContentAlignment: _verticalContentAlignment,
+      selectAction: _selectAction,
+      minHeight: _minHeight,
+    );
+  }
+}
+
+class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot3
+    with V1Dot4ActionBuilder, ElementContainerHelperV1Dot4 {
   @protected
   Refresh? _refresh;
   @protected
@@ -177,7 +199,7 @@ class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot2
 }
 
 class AdaptiveCardBuilderV1Dot5 extends AdaptiveCardBuilderV1Dot4
-    with V1Dot5ActionBuilder {
+    with V1Dot5ActionBuilder, ElementContainerHelperV1Dot5 {
   @protected
   bool? _rtl;
 

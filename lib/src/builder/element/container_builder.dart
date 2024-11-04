@@ -1,16 +1,20 @@
 part of 'element_builder.dart';
 
-class ContainerBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
+class ContainerBuilderV1Dot0
+    with BaseElementBuilderV1Dot0, ElementContainerHelperV1Dot0 {
   @protected
   final List<Element> _items = [];
   @protected
   ContainerStyle? _style;
 
+  @override
+  void addElement(Element element) {
+    _items.add(element);
+  }
+
   void setStyle(ContainerStyle style) {
     _style = style;
   }
-
-  // TODO ADD ITEMS
 
   Container build() {
     return Container(
@@ -24,7 +28,7 @@ class ContainerBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
 }
 
 class ContainerBuilderV1Dot1 extends ContainerBuilderV1Dot0
-    with BaseElementBuilderV1Dot1 {
+    with BaseElementBuilderV1Dot1, ElementContainerHelperV1Dot1 {
   @protected
   ISelectAction? _selectAction;
   @protected
@@ -54,7 +58,7 @@ class ContainerBuilderV1Dot1 extends ContainerBuilderV1Dot0
 }
 
 class ContainerBuilderV1Dot2 extends ContainerBuilderV1Dot1
-    with BaseElementBuilderV1Dot2 {
+    with BaseElementBuilderV1Dot2, ElementContainerHelperV1Dot2 {
   @protected
   bool? _bleed;
   @protected
@@ -95,7 +99,14 @@ class ContainerBuilderV1Dot2 extends ContainerBuilderV1Dot1
   }
 }
 
-class ContainerBuilderV1Dot5 extends ContainerBuilderV1Dot2 {
+class ContainerBuilderV1Dot3 extends ContainerBuilderV1Dot2
+    with BaseElementBuilderV1Dot2, ElementContainerHelperV1Dot3 {}
+
+class ContainerBuilderV1Dot4 extends ContainerBuilderV1Dot3
+    with BaseElementBuilderV1Dot2, ElementContainerHelperV1Dot4 {}
+
+class ContainerBuilderV1Dot5 extends ContainerBuilderV1Dot3
+    with ElementContainerHelperV1Dot5 {
   @protected
   bool? _rtl;
 

@@ -12,21 +12,21 @@ class InputChoiceSet extends InputElement {
   final bool? wrap;
 
   InputChoiceSet({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
     required String id,
-    required super.isVisible,
-    required super.errorMessage,
-    required super.isRequired,
-    required super.label,
-    required this.choices,
-    required this.isMultiSelect,
-    required this.style,
-    required this.value,
-    required this.placeholder,
-    required this.wrap,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.isVisible,
+    super.errorMessage,
+    super.isRequired,
+    super.label,
+    this.choices,
+    this.isMultiSelect,
+    this.style,
+    this.value,
+    this.placeholder,
+    this.wrap,
   }) : super(id: id);
 
   @override

@@ -10,19 +10,19 @@ class Table extends Element {
   final VerticalAlignment? verticalCellContentAlignment;
 
   Table({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
-    required this.columns,
-    required this.rows,
-    required this.firstRowAsHeader,
-    required this.showGridLines,
-    required this.gridStyle,
-    required this.horizontalCellContentAlignment,
-    required this.verticalCellContentAlignment,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.columns,
+    this.rows,
+    this.firstRowAsHeader,
+    this.showGridLines,
+    this.gridStyle,
+    this.horizontalCellContentAlignment,
+    this.verticalCellContentAlignment,
   });
 
   @override
@@ -96,22 +96,23 @@ class TableRow {
   }
 }
 
+// TODO check if this is actually a container
 class TableCell extends Container {
   TableCell({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required super.items,
-    required super.selectAction,
-    required super.style,
-    required super.verticalContentAlignment,
-    required super.bleed,
-    required super.backgroundImage,
-    required super.minHeight,
-    required super.rtl,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    super.selectAction,
+    super.style,
+    super.verticalContentAlignment,
+    super.bleed,
+    super.backgroundImage,
+    super.minHeight,
+    super.rtl,
   });
 
   @override

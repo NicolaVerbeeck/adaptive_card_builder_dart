@@ -1,6 +1,7 @@
 part of '../../element.dart';
 
 class InputToggle extends InputElement {
+  final String title;
   @override
   String get id => super.id!;
   final String? value;
@@ -9,19 +10,20 @@ class InputToggle extends InputElement {
   final bool? wrap;
 
   InputToggle({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
     required String id,
-    required super.isVisible,
-    required super.errorMessage,
-    required super.isRequired,
-    required super.label,
-    required this.value,
-    required this.valueOff,
-    required this.valueOn,
-    required this.wrap,
+    required this.title,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.isVisible,
+    super.errorMessage,
+    super.isRequired,
+    super.label,
+    this.value,
+    this.valueOff,
+    this.valueOn,
+    this.wrap,
   }) : super(id: id);
 
   @override
@@ -29,6 +31,7 @@ class InputToggle extends InputElement {
     container.addAll({
       'type': 'Input.Toggle',
       'id': id,
+      'title': title,
       if (value != null) 'value': value,
       if (valueOff != null) 'valueOff': valueOff,
       if (valueOn != null) 'valueOn': valueOn,

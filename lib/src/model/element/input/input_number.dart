@@ -9,19 +9,19 @@ class InputNumber extends InputElement {
   final num? value;
 
   InputNumber({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
     required String id,
-    required super.isVisible,
-    required super.errorMessage,
-    required super.isRequired,
-    required super.label,
-    required this.max,
-    required this.min,
-    required this.placeholder,
-    required this.value,
+    super.isVisible,
+    super.errorMessage,
+    super.isRequired,
+    super.label,
+    this.max,
+    this.min,
+    this.placeholder,
+    this.value,
   }) : super(id: id);
 
   @override

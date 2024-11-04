@@ -12,22 +12,22 @@ class InputText extends InputElement {
   final String? value;
 
   InputText({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.isVisible,
-    required super.errorMessage,
-    required super.isRequired,
-    required super.label,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.isVisible,
+    super.errorMessage,
+    super.isRequired,
+    super.label,
     required String id,
-    required this.isMultiline,
-    required this.maxLength,
-    required this.placeholder,
-    required this.regex,
-    required this.style,
-    required this.inlineAction,
-    required this.value,
+    this.isMultiline,
+    this.maxLength,
+    this.placeholder,
+    this.regex,
+    this.style,
+    this.inlineAction,
+    this.value,
   }) : super(id: id);
 
   @override
