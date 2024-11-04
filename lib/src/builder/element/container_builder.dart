@@ -28,7 +28,10 @@ class ContainerBuilderV1Dot0
 }
 
 class ContainerBuilderV1Dot1 extends ContainerBuilderV1Dot0
-    with BaseElementBuilderV1Dot1, ElementContainerHelperV1Dot1 {
+    with
+        BaseElementBuilderV1Dot1,
+        ElementContainerHelperV1Dot1,
+        SelectActionBuilderHelperV1Dot1 {
   @protected
   ISelectAction? _selectAction;
   @protected
@@ -58,7 +61,10 @@ class ContainerBuilderV1Dot1 extends ContainerBuilderV1Dot0
 }
 
 class ContainerBuilderV1Dot2 extends ContainerBuilderV1Dot1
-    with BaseElementBuilderV1Dot2, ElementContainerHelperV1Dot2 {
+    with
+        BaseElementBuilderV1Dot2,
+        ElementContainerHelperV1Dot2,
+        SelectActionBuilderHelperV1Dot2 {
   @protected
   bool? _bleed;
   @protected
@@ -100,13 +106,13 @@ class ContainerBuilderV1Dot2 extends ContainerBuilderV1Dot1
 }
 
 class ContainerBuilderV1Dot3 extends ContainerBuilderV1Dot2
-    with BaseElementBuilderV1Dot2, ElementContainerHelperV1Dot3 {}
+    with ElementContainerHelperV1Dot3 {}
 
 class ContainerBuilderV1Dot4 extends ContainerBuilderV1Dot3
-    with BaseElementBuilderV1Dot2, ElementContainerHelperV1Dot4 {}
+    with ElementContainerHelperV1Dot4, SelectActionBuilderHelperV1Dot4 {}
 
-class ContainerBuilderV1Dot5 extends ContainerBuilderV1Dot3
-    with ElementContainerHelperV1Dot5 {
+class ContainerBuilderV1Dot5 extends ContainerBuilderV1Dot4
+    with ElementContainerHelperV1Dot5, SelectActionBuilderHelperV1Dot5 {
   @protected
   bool? _rtl;
 

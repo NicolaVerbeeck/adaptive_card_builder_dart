@@ -29,10 +29,11 @@ class ColumnSetBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
 }
 
 class ColumnSetBuilderV1Dot1 extends ColumnSetBuilderV1Dot0
-    with BaseElementBuilderV1Dot1 {
+    with BaseElementBuilderV1Dot1, SelectActionBuilderHelperV1Dot1 {
   @protected
   ISelectAction? _selectAction;
 
+  @override
   void setSelectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
@@ -59,7 +60,7 @@ class ColumnSetBuilderV1Dot1 extends ColumnSetBuilderV1Dot0
 }
 
 class ColumnSetBuilderV1Dot2 extends ColumnSetBuilderV1Dot1
-    with BaseElementBuilderV1Dot2 {
+    with BaseElementBuilderV1Dot2, SelectActionBuilderHelperV1Dot2 {
   @protected
   bool? _bleed;
   @protected
@@ -103,7 +104,30 @@ class ColumnSetBuilderV1Dot2 extends ColumnSetBuilderV1Dot1
   }
 }
 
-class ColumnSetBuilderV1Dot5 extends ColumnSetBuilderV1Dot2 {
+class ColumnSetBuilderV1Dot3 extends ColumnSetBuilderV1Dot2
+    with SelectActionBuilderHelperV1Dot2 {
+  @override
+  void addColumn(void Function(ContainerBuilderV1Dot3) builder) {
+    _columns ??= [];
+    final column = ContainerBuilderV1Dot3();
+    builder(column);
+    _columns!.add(Column.fromContainer(column.build()));
+  }
+}
+
+class ColumnSetBuilderV1Dot4 extends ColumnSetBuilderV1Dot3
+    with SelectActionBuilderHelperV1Dot4 {
+  @override
+  void addColumn(void Function(ContainerBuilderV1Dot4) builder) {
+    _columns ??= [];
+    final column = ContainerBuilderV1Dot4();
+    builder(column);
+    _columns!.add(Column.fromContainer(column.build()));
+  }
+}
+
+class ColumnSetBuilderV1Dot5 extends ColumnSetBuilderV1Dot4
+    with SelectActionBuilderHelperV1Dot5 {
   @override
   void addColumn(void Function(ContainerBuilderV1Dot5) builder) {
     _columns ??= [];

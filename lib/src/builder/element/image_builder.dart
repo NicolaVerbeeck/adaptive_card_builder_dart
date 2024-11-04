@@ -45,7 +45,7 @@ class ImageBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
 }
 
 class ImageBuilderV1Dot1 extends ImageBuilderV1Dot0
-    with BaseElementBuilderV1Dot1 {
+    with BaseElementBuilderV1Dot1, SelectActionBuilderHelperV1Dot1 {
   @protected
   String? _backgroundColor;
   @protected
@@ -97,7 +97,7 @@ class ImageBuilderV1Dot1 extends ImageBuilderV1Dot0
 }
 
 class ImageBuilderV1Dot2 extends ImageBuilderV1Dot1
-    with BaseElementBuilderV1Dot2 {
+    with BaseElementBuilderV1Dot2, SelectActionBuilderHelperV1Dot2 {
   ImageBuilderV1Dot2(super.url);
 
   @override
@@ -119,4 +119,14 @@ class ImageBuilderV1Dot2 extends ImageBuilderV1Dot1
       fallback: _fallback,
     );
   }
+}
+
+class ImageBuilderV1Dot4 extends ImageBuilderV1Dot2
+    with SelectActionBuilderHelperV1Dot4 {
+  ImageBuilderV1Dot4(super.url);
+}
+
+class ImageBuilderV1Dot5 extends ImageBuilderV1Dot4
+    with SelectActionBuilderHelperV1Dot5 {
+  ImageBuilderV1Dot5(super.url);
 }

@@ -71,7 +71,7 @@ class TextInputBuilderV1Dot1 extends TextInputBuilderV1Dot0
 }
 
 class TextInputBuilderV1Dot2 extends TextInputBuilderV1Dot1
-    with BaseElementBuilderV1Dot2 {
+    with BaseElementBuilderV1Dot2, SelectActionBuilderHelperV1Dot2 {
   @protected
   ISelectAction? _inlineAction;
 
@@ -96,6 +96,12 @@ class TextInputBuilderV1Dot2 extends TextInputBuilderV1Dot1
       isVisible: _isVisible,
       height: _height,
     );
+  }
+
+  @override
+  @protected
+  void setSelectAction(ISelectAction selectAction) {
+    setInlineAction(selectAction);
   }
 }
 
@@ -126,4 +132,14 @@ class TextInputBuilderV1Dot3 extends TextInputBuilderV1Dot2
       height: _height,
     );
   }
+}
+
+class TextInputBuilderV1Dot4 extends TextInputBuilderV1Dot3
+    with SelectActionBuilderHelperV1Dot4 {
+  TextInputBuilderV1Dot4(super.id);
+}
+
+class TextInputBuilderV1Dot5 extends TextInputBuilderV1Dot4
+    with SelectActionBuilderHelperV1Dot5 {
+  TextInputBuilderV1Dot5(super.id);
 }

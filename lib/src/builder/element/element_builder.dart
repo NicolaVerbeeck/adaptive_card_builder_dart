@@ -1,5 +1,6 @@
 import 'package:adaptive_card_builder/src/builder/action/versioned_action_builder.dart';
 import 'package:adaptive_card_builder/src/builder/element/element_container_helper.dart';
+import 'package:adaptive_card_builder/src/builder/element/select_action_builder_helper.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
 import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/background_image.dart';

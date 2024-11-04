@@ -199,8 +199,8 @@ abstract mixin class ElementContainerHelperV1Dot3 {
     addElement(ImageBuilderV1Dot2(url).apply(builder).build());
   }
 
-  void addContainer(void Function(ContainerBuilderV1Dot2) builder) {
-    addElement(ContainerBuilderV1Dot2().apply(builder).build());
+  void addContainer(void Function(ContainerBuilderV1Dot3) builder) {
+    addElement(ContainerBuilderV1Dot3().apply(builder).build());
   }
 
   void addColumnSet(void Function(ColumnSetBuilderV1Dot2) builder) {
@@ -264,12 +264,12 @@ abstract mixin class ElementContainerHelperV1Dot4 {
     addElement(TextBlockBuilderV1Dot2(text).apply(builder).build());
   }
 
-  void addImage(Uri url, void Function(ImageBuilderV1Dot2) builder) {
-    addElement(ImageBuilderV1Dot2(url).apply(builder).build());
+  void addImage(Uri url, void Function(ImageBuilderV1Dot4) builder) {
+    addElement(ImageBuilderV1Dot4(url).apply(builder).build());
   }
 
-  void addContainer(void Function(ContainerBuilderV1Dot2) builder) {
-    addElement(ContainerBuilderV1Dot2().apply(builder).build());
+  void addContainer(void Function(ContainerBuilderV1Dot4) builder) {
+    addElement(ContainerBuilderV1Dot4().apply(builder).build());
   }
 
   void addColumnSet(void Function(ColumnSetBuilderV1Dot2) builder) {
@@ -284,8 +284,8 @@ abstract mixin class ElementContainerHelperV1Dot4 {
     addElement(ImageSetBuilderV1Dot2().apply(builder).build());
   }
 
-  void addInputText(String id, void Function(TextInputBuilderV1Dot3) builder) {
-    addElement(TextInputBuilderV1Dot3(id).apply(builder).build());
+  void addInputText(String id, void Function(TextInputBuilderV1Dot4) builder) {
+    addElement(TextInputBuilderV1Dot4(id).apply(builder).build());
   }
 
   void addNumberInput(
@@ -333,8 +333,8 @@ abstract mixin class ElementContainerHelperV1Dot5 {
     addElement(TextBlockBuilderV1Dot5(text).apply(builder).build());
   }
 
-  void addImage(Uri url, void Function(ImageBuilderV1Dot2) builder) {
-    addElement(ImageBuilderV1Dot2(url).apply(builder).build());
+  void addImage(Uri url, void Function(ImageBuilderV1Dot5) builder) {
+    addElement(ImageBuilderV1Dot5(url).apply(builder).build());
   }
 
   void addContainer(void Function(ContainerBuilderV1Dot5) builder) {
@@ -353,8 +353,8 @@ abstract mixin class ElementContainerHelperV1Dot5 {
     addElement(ImageSetBuilderV1Dot2().apply(builder).build());
   }
 
-  void addInputText(String id, void Function(TextInputBuilderV1Dot3) builder) {
-    addElement(TextInputBuilderV1Dot3(id).apply(builder).build());
+  void addInputText(String id, void Function(TextInputBuilderV1Dot5) builder) {
+    addElement(TextInputBuilderV1Dot5(id).apply(builder).build());
   }
 
   void addNumberInput(

@@ -75,7 +75,8 @@ class TableBuilderV1Dot5
   }
 }
 
-class TableCellBuilderV1Dot5 {
+class TableCellBuilderV1Dot5
+    with SelectActionBuilderHelperV1Dot5, ElementContainerHelperV1Dot5 {
   @protected
   final _items = <Element>[];
   @protected
@@ -93,7 +94,12 @@ class TableCellBuilderV1Dot5 {
   @protected
   bool? _rtl;
 
-  // TODO items
+  @override
+  void addElement(Element element) {
+    _items.add(element);
+  }
+
+  @override
   void setSelectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
