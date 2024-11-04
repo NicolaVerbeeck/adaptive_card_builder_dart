@@ -1,6 +1,6 @@
 name: adaptive_card_builder
 description: Model classes and builders to create adaptive cards
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/NicolaVerbeeck/adaptive_card_builder_dart
 
 environment:

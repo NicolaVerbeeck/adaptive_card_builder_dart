@@ -18,6 +18,34 @@ class TextBlockBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   @protected
   bool? _wrap;
 
+  void setColor(Colors color) {
+    _color = color;
+  }
+
+  void setHorizontalAlignment(HorizontalAlignment horizontalAlignment) {
+    _horizontalAlignment = horizontalAlignment;
+  }
+
+  void setIsSubtle(bool isSubtle) {
+    _isSubtle = isSubtle;
+  }
+
+  void setMaxLines(int maxLines) {
+    _maxLines = maxLines;
+  }
+
+  void setSize(FontSize size) {
+    _size = size;
+  }
+
+  void setWeight(FontWeight weight) {
+    _weight = weight;
+  }
+
+  void setWrap(bool wrap) {
+    _wrap = wrap;
+  }
+
   TextBlockBuilderV1Dot0(this._text);
 
   TextBlock build() {
