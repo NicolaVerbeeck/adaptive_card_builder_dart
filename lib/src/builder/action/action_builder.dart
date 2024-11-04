@@ -1,4 +1,4 @@
-import 'package:adaptive_card_builder/adaptive_card_builder.dart';
+import 'package:adaptive_card_builder/src/builder/adaptive_card_builder.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
 import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/union.dart';

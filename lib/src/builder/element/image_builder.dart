@@ -67,6 +67,7 @@ class ImageBuilderV1Dot1 extends ImageBuilderV1Dot0
     _imageHeight = Union.right(imageHeight);
   }
 
+  @override
   void setSelectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
