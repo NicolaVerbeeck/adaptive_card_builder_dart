@@ -9,18 +9,18 @@ class ColumnSet extends Element {
   final HorizontalAlignment? horizontalAlignment;
 
   ColumnSet({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
-    required this.columns,
-    required this.selectAction,
-    required this.style,
-    required this.bleed,
-    required this.minHeight,
-    required this.horizontalAlignment,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.columns,
+    this.selectAction,
+    this.style,
+    this.bleed,
+    this.minHeight,
+    this.horizontalAlignment,
   });
 
   @override
@@ -101,5 +101,31 @@ class Column {
           (value) => value.toString(),
         ),
     };
+  }
+
+  factory Column.fromContainer(Container container) {
+    return Column(
+      id: container.id,
+      isVisible: container.isVisible,
+      items: container.items,
+      backgroundImage: container.backgroundImage,
+      bleed: container.bleed,
+      fallback: container.fallback?.fold(
+        (value) => value is Container
+            ? Union.left(Column.fromContainer(value))
+            : (value is Column
+                ? Union.left(value as Column)
+                : throw ArgumentError(
+                    'Fallback for column must be column or container')),
+        (value) => Union.right(value!),
+      ),
+      minHeight: container.minHeight,
+      rtl: container.rtl,
+      separator: container.separator,
+      spacing: container.spacing,
+      selectAction: container.selectAction,
+      style: container.style,
+      verticalContentAlignment: container.verticalContentAlignment,
+    );
   }
 }

@@ -4,13 +4,13 @@ class FactSet extends Element {
   final List<Fact> facts;
 
   FactSet({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required this.facts,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
   });
 
   @override

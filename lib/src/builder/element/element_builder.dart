@@ -1,5 +1,6 @@
 import 'package:adaptive_card_builder/src/builder/action/versioned_action_builder.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
+import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/background_image.dart';
 import 'package:adaptive_card_builder/src/model/element.dart';
 import 'package:adaptive_card_builder/src/model/union.dart';
@@ -11,6 +12,9 @@ part 'image_builder.dart';
 part 'media_builder.dart';
 part 'rich_text_block_builder.dart';
 part 'text_block_builder.dart';
+part 'column_set_builder.dart';
+part 'fact_set_builder.dart';
+part 'image_set_builder.dart';
 
 mixin class BaseElementBuilderV1Dot0 {
   @protected

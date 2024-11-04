@@ -5,14 +5,14 @@ class ImageSet extends Element {
   final ImageSize? imageSize;
 
   ImageSet({
-    required super.fallback,
-    required super.height,
-    required super.separator,
-    required super.spacing,
-    required super.id,
-    required super.isVisible,
     required this.images,
-    required this.imageSize,
+    super.fallback,
+    super.height,
+    super.separator,
+    super.spacing,
+    super.id,
+    super.isVisible,
+    this.imageSize,
   });
 
   @override
