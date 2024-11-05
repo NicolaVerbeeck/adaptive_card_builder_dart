@@ -33,7 +33,7 @@ class TextInputBuilderV1Dot0 extends BaseElementBuilderV1Dot0 {
   }
 
   TextInputBuilderV1Dot0(String id) {
-    setId(id);
+    _id = id;
   }
 
   InputText build() {

@@ -15,7 +15,7 @@ void main() {
         'type': 'AdaptiveCard',
         'version': '1.0',
         r'$schema': 'https://adaptivecards.io/schemas/adaptive-card.json',
-        'backgroundImage': 'https://example.com/image.jpg'
+        'backgroundImage': 'https://example.com/image.jpg',
       });
     });
     test('setFallbackText', () {
@@ -24,7 +24,7 @@ void main() {
         'type': 'AdaptiveCard',
         'version': '1.0',
         r'$schema': 'https://adaptivecards.io/schemas/adaptive-card.json',
-        'fallbackText': 'Fallback text'
+        'fallbackText': 'Fallback text',
       });
     });
     test('setSpeak', () {
@@ -33,7 +33,7 @@ void main() {
         'type': 'AdaptiveCard',
         'version': '1.0',
         r'$schema': 'https://adaptivecards.io/schemas/adaptive-card.json',
-        'speak': 'Speak text'
+        'speak': 'Speak text',
       });
     });
     test('setLang', () {
@@ -61,9 +61,9 @@ void main() {
             'type': 'Action.Submit',
             'data': 'any data',
             'id': 'some-id',
-            'title': 'a title'
+            'title': 'a title',
           }
-        ]
+        ],
       });
     });
     test('addOpenUrlAction', () {
@@ -80,9 +80,9 @@ void main() {
             'type': 'Action.OpenUrl',
             'url': 'https://example.com',
             'id': 'some-id',
-            'title': 'a title'
+            'title': 'a title',
           }
-        ]
+        ],
       });
     });
     test('addShowCardAction', () {
@@ -105,12 +105,12 @@ void main() {
               'type': 'AdaptiveCard',
               'version': '1.0',
               r'$schema': 'https://adaptivecards.io/schemas/adaptive-card.json',
-              'lang': 'DE'
+              'lang': 'DE',
             },
             'id': 'some-id',
-            'title': 'a title'
+            'title': 'a title',
           }
-        ]
+        ],
       });
     });
   });

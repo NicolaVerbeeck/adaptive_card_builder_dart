@@ -5,7 +5,9 @@ abstract mixin class ElementContainerHelperV1Dot0 {
   void addElement(Element element);
 
   void addTextBlock(
-      String text, void Function(TextBlockBuilderV1Dot0) builder) {
+    String text,
+    void Function(TextBlockBuilderV1Dot0) builder,
+  ) {
     addElement(TextBlockBuilderV1Dot0(text).apply(builder).build());
   }
 
@@ -34,7 +36,9 @@ abstract mixin class ElementContainerHelperV1Dot0 {
   }
 
   void addNumberInput(
-      String id, void Function(NumberInputBuilderV1Dot0) builder) {
+    String id,
+    void Function(NumberInputBuilderV1Dot0) builder,
+  ) {
     addElement(NumberInputBuilderV1Dot0(id).apply(builder).build());
   }
 
@@ -46,10 +50,14 @@ abstract mixin class ElementContainerHelperV1Dot0 {
     addElement(TimeInputBuilderV1Dot0(id).apply(builder).build());
   }
 
-  void addToggleInput(String id, String title,
-      void Function(ToggleInputBuilderV1Dot0) builder) {
+  void addToggleInput(
+    String id,
+    String title,
+    void Function(ToggleInputBuilderV1Dot0) builder,
+  ) {
     addElement(
-        ToggleInputBuilderV1Dot0(id: id, title: title).apply(builder).build());
+      ToggleInputBuilderV1Dot0(id: id, title: title).apply(builder).build(),
+    );
   }
 
   void addChoiceSet(String id, void Function(ChoiceSetBuilderV1Dot0) builder) {
@@ -61,7 +69,9 @@ abstract mixin class ElementContainerHelperV1Dot1 {
   void addElement(Element element);
 
   void addTextBlock(
-      String text, void Function(TextBlockBuilderV1Dot1) builder) {
+    String text,
+    void Function(TextBlockBuilderV1Dot1) builder,
+  ) {
     addElement(TextBlockBuilderV1Dot1(text).apply(builder).build());
   }
 
@@ -90,7 +100,9 @@ abstract mixin class ElementContainerHelperV1Dot1 {
   }
 
   void addNumberInput(
-      String id, void Function(NumberInputBuilderV1Dot1) builder) {
+    String id,
+    void Function(NumberInputBuilderV1Dot1) builder,
+  ) {
     addElement(NumberInputBuilderV1Dot1(id).apply(builder).build());
   }
 
@@ -102,10 +114,14 @@ abstract mixin class ElementContainerHelperV1Dot1 {
     addElement(TimeInputBuilderV1Dot1(id).apply(builder).build());
   }
 
-  void addToggleInput(String id, String title,
-      void Function(ToggleInputBuilderV1Dot1) builder) {
+  void addToggleInput(
+    String id,
+    String title,
+    void Function(ToggleInputBuilderV1Dot1) builder,
+  ) {
     addElement(
-        ToggleInputBuilderV1Dot1(id: id, title: title).apply(builder).build());
+      ToggleInputBuilderV1Dot1(id: id, title: title).apply(builder).build(),
+    );
   }
 
   void addChoiceSet(String id, void Function(ChoiceSetBuilderV1Dot1) builder) {
@@ -113,7 +129,9 @@ abstract mixin class ElementContainerHelperV1Dot1 {
   }
 
   void addMedia(
-      List<MediaSource> sources, void Function(MediaBuilderV1Dot1) builder) {
+    List<MediaSource> sources,
+    void Function(MediaBuilderV1Dot1) builder,
+  ) {
     addElement(MediaBuilderV1Dot1(sources).apply(builder).build());
   }
 }
@@ -122,7 +140,9 @@ abstract mixin class ElementContainerHelperV1Dot2 {
   void addElement(Element element);
 
   void addTextBlock(
-      String text, void Function(TextBlockBuilderV1Dot2) builder) {
+    String text,
+    void Function(TextBlockBuilderV1Dot2) builder,
+  ) {
     addElement(TextBlockBuilderV1Dot2(text).apply(builder).build());
   }
 
@@ -151,7 +171,9 @@ abstract mixin class ElementContainerHelperV1Dot2 {
   }
 
   void addNumberInput(
-      String id, void Function(NumberInputBuilderV1Dot2) builder) {
+    String id,
+    void Function(NumberInputBuilderV1Dot2) builder,
+  ) {
     addElement(NumberInputBuilderV1Dot2(id).apply(builder).build());
   }
 
@@ -163,10 +185,14 @@ abstract mixin class ElementContainerHelperV1Dot2 {
     addElement(TimeInputBuilderV1Dot2(id).apply(builder).build());
   }
 
-  void addToggleInput(String id, String title,
-      void Function(ToggleInputBuilderV1Dot2) builder) {
+  void addToggleInput(
+    String id,
+    String title,
+    void Function(ToggleInputBuilderV1Dot2) builder,
+  ) {
     addElement(
-        ToggleInputBuilderV1Dot2(id: id, title: title).apply(builder).build());
+      ToggleInputBuilderV1Dot2(id: id, title: title).apply(builder).build(),
+    );
   }
 
   void addChoiceSet(String id, void Function(ChoiceSetBuilderV1Dot2) builder) {
@@ -174,7 +200,9 @@ abstract mixin class ElementContainerHelperV1Dot2 {
   }
 
   void addMedia(
-      List<MediaSource> sources, void Function(MediaBuilderV1Dot1) builder) {
+    List<MediaSource> sources,
+    void Function(MediaBuilderV1Dot1) builder,
+  ) {
     addElement(MediaBuilderV1Dot1(sources).apply(builder).build());
   }
 
@@ -191,7 +219,9 @@ abstract mixin class ElementContainerHelperV1Dot3 {
   void addElement(Element element);
 
   void addTextBlock(
-      String text, void Function(TextBlockBuilderV1Dot2) builder) {
+    String text,
+    void Function(TextBlockBuilderV1Dot2) builder,
+  ) {
     addElement(TextBlockBuilderV1Dot2(text).apply(builder).build());
   }
 
@@ -220,7 +250,9 @@ abstract mixin class ElementContainerHelperV1Dot3 {
   }
 
   void addNumberInput(
-      String id, void Function(NumberInputBuilderV1Dot3) builder) {
+    String id,
+    void Function(NumberInputBuilderV1Dot3) builder,
+  ) {
     addElement(NumberInputBuilderV1Dot3(id).apply(builder).build());
   }
 
@@ -232,10 +264,14 @@ abstract mixin class ElementContainerHelperV1Dot3 {
     addElement(TimeInputBuilderV1Dot3(id).apply(builder).build());
   }
 
-  void addToggleInput(String id, String title,
-      void Function(ToggleInputBuilderV1Dot3) builder) {
+  void addToggleInput(
+    String id,
+    String title,
+    void Function(ToggleInputBuilderV1Dot3) builder,
+  ) {
     addElement(
-        ToggleInputBuilderV1Dot3(id: id, title: title).apply(builder).build());
+      ToggleInputBuilderV1Dot3(id: id, title: title).apply(builder).build(),
+    );
   }
 
   void addChoiceSet(String id, void Function(ChoiceSetBuilderV1Dot3) builder) {
@@ -243,7 +279,9 @@ abstract mixin class ElementContainerHelperV1Dot3 {
   }
 
   void addMedia(
-      List<MediaSource> sources, void Function(MediaBuilderV1Dot2) builder) {
+    List<MediaSource> sources,
+    void Function(MediaBuilderV1Dot2) builder,
+  ) {
     addElement(MediaBuilderV1Dot2(sources).apply(builder).build());
   }
 
@@ -260,7 +298,9 @@ abstract mixin class ElementContainerHelperV1Dot4 {
   void addElement(Element element);
 
   void addTextBlock(
-      String text, void Function(TextBlockBuilderV1Dot2) builder) {
+    String text,
+    void Function(TextBlockBuilderV1Dot2) builder,
+  ) {
     addElement(TextBlockBuilderV1Dot2(text).apply(builder).build());
   }
 
@@ -289,7 +329,9 @@ abstract mixin class ElementContainerHelperV1Dot4 {
   }
 
   void addNumberInput(
-      String id, void Function(NumberInputBuilderV1Dot3) builder) {
+    String id,
+    void Function(NumberInputBuilderV1Dot3) builder,
+  ) {
     addElement(NumberInputBuilderV1Dot3(id).apply(builder).build());
   }
 
@@ -301,10 +343,14 @@ abstract mixin class ElementContainerHelperV1Dot4 {
     addElement(TimeInputBuilderV1Dot3(id).apply(builder).build());
   }
 
-  void addToggleInput(String id, String title,
-      void Function(ToggleInputBuilderV1Dot3) builder) {
+  void addToggleInput(
+    String id,
+    String title,
+    void Function(ToggleInputBuilderV1Dot3) builder,
+  ) {
     addElement(
-        ToggleInputBuilderV1Dot3(id: id, title: title).apply(builder).build());
+      ToggleInputBuilderV1Dot3(id: id, title: title).apply(builder).build(),
+    );
   }
 
   void addChoiceSet(String id, void Function(ChoiceSetBuilderV1Dot3) builder) {
@@ -312,7 +358,9 @@ abstract mixin class ElementContainerHelperV1Dot4 {
   }
 
   void addMedia(
-      List<MediaSource> sources, void Function(MediaBuilderV1Dot2) builder) {
+    List<MediaSource> sources,
+    void Function(MediaBuilderV1Dot2) builder,
+  ) {
     addElement(MediaBuilderV1Dot2(sources).apply(builder).build());
   }
 
@@ -329,7 +377,9 @@ abstract mixin class ElementContainerHelperV1Dot5 {
   void addElement(Element element);
 
   void addTextBlock(
-      String text, void Function(TextBlockBuilderV1Dot5) builder) {
+    String text,
+    void Function(TextBlockBuilderV1Dot5) builder,
+  ) {
     addElement(TextBlockBuilderV1Dot5(text).apply(builder).build());
   }
 
@@ -358,7 +408,9 @@ abstract mixin class ElementContainerHelperV1Dot5 {
   }
 
   void addNumberInput(
-      String id, void Function(NumberInputBuilderV1Dot3) builder) {
+    String id,
+    void Function(NumberInputBuilderV1Dot3) builder,
+  ) {
     addElement(NumberInputBuilderV1Dot3(id).apply(builder).build());
   }
 
@@ -370,10 +422,14 @@ abstract mixin class ElementContainerHelperV1Dot5 {
     addElement(TimeInputBuilderV1Dot3(id).apply(builder).build());
   }
 
-  void addToggleInput(String id, String title,
-      void Function(ToggleInputBuilderV1Dot3) builder) {
+  void addToggleInput(
+    String id,
+    String title,
+    void Function(ToggleInputBuilderV1Dot3) builder,
+  ) {
     addElement(
-        ToggleInputBuilderV1Dot3(id: id, title: title).apply(builder).build());
+      ToggleInputBuilderV1Dot3(id: id, title: title).apply(builder).build(),
+    );
   }
 
   void addChoiceSet(String id, void Function(ChoiceSetBuilderV1Dot3) builder) {
@@ -381,7 +437,9 @@ abstract mixin class ElementContainerHelperV1Dot5 {
   }
 
   void addMedia(
-      List<MediaSource> sources, void Function(MediaBuilderV1Dot2) builder) {
+    List<MediaSource> sources,
+    void Function(MediaBuilderV1Dot2) builder,
+  ) {
     addElement(MediaBuilderV1Dot2(sources).apply(builder).build());
   }
 

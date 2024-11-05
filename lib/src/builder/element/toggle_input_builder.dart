@@ -25,7 +25,7 @@ class ToggleInputBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
     required String id,
     required String title,
   }) : _title = title {
-    setId(id);
+    _id = id;
   }
 
   InputToggle build() {

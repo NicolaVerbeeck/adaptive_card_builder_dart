@@ -1,11 +1,13 @@
 part of 'element_builder.dart';
 
+/// Column set builder for adaptive cards version 1.0
 class ColumnSetBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   @protected
   List<Column>? _columns;
   @protected
   HorizontalAlignment? _horizontalAlignment;
 
+  /// Add a column to the column set
   void addColumn(void Function(ContainerBuilderV1Dot0) builder) {
     _columns ??= [];
     final column = ContainerBuilderV1Dot0();
@@ -13,10 +15,12 @@ class ColumnSetBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
     _columns!.add(Column.fromContainer(column.build()));
   }
 
-  void setHorizontalAlignment(HorizontalAlignment horizontalAlignment) {
+  /// Set the horizontal alignment of the column set
+  set horizontalAlignment(HorizontalAlignment horizontalAlignment) {
     _horizontalAlignment = horizontalAlignment;
   }
 
+  /// Build the column set with the provided configuration
   ColumnSet build() {
     return ColumnSet(
       columns: _columns,
@@ -28,6 +32,7 @@ class ColumnSetBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   }
 }
 
+/// Column set builder for adaptive cards version 1.1
 class ColumnSetBuilderV1Dot1 extends ColumnSetBuilderV1Dot0
     with BaseElementBuilderV1Dot1, SelectActionBuilderHelperV1Dot1 {
   @protected
@@ -59,6 +64,7 @@ class ColumnSetBuilderV1Dot1 extends ColumnSetBuilderV1Dot0
   }
 }
 
+/// Column set builder for adaptive cards version 1.2
 class ColumnSetBuilderV1Dot2 extends ColumnSetBuilderV1Dot1
     with BaseElementBuilderV1Dot2, SelectActionBuilderHelperV1Dot2 {
   @protected
@@ -76,15 +82,18 @@ class ColumnSetBuilderV1Dot2 extends ColumnSetBuilderV1Dot1
     _columns!.add(Column.fromContainer(column.build()));
   }
 
-  void setBleed(bool bleed) {
+  /// Set the bleed property of the column set
+  set bleed(bool bleed) {
     _bleed = bleed;
   }
 
-  void setStyle(ContainerStyle style) {
+  /// Set the style of the column set
+  set style(ContainerStyle style) {
     _style = style;
   }
 
-  void setMinHeight(String minHeight) {
+  /// Set the minimum height of the column set
+  set minHeight(String minHeight) {
     _minHeight = minHeight;
   }
 
@@ -104,6 +113,7 @@ class ColumnSetBuilderV1Dot2 extends ColumnSetBuilderV1Dot1
   }
 }
 
+/// Column set builder for adaptive cards version 1.3
 class ColumnSetBuilderV1Dot3 extends ColumnSetBuilderV1Dot2
     with SelectActionBuilderHelperV1Dot2 {
   @override
@@ -115,6 +125,7 @@ class ColumnSetBuilderV1Dot3 extends ColumnSetBuilderV1Dot2
   }
 }
 
+/// Column set builder for adaptive cards version 1.4
 class ColumnSetBuilderV1Dot4 extends ColumnSetBuilderV1Dot3
     with SelectActionBuilderHelperV1Dot4 {
   @override
@@ -126,6 +137,7 @@ class ColumnSetBuilderV1Dot4 extends ColumnSetBuilderV1Dot3
   }
 }
 
+/// Column set builder for adaptive cards version 1.5
 class ColumnSetBuilderV1Dot5 extends ColumnSetBuilderV1Dot4
     with SelectActionBuilderHelperV1Dot5 {
   @override

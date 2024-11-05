@@ -91,6 +91,7 @@ class OpenUrlAction extends ISelectAction {
   final Uri url;
 
   OpenUrlAction({
+    required this.url,
     super.title,
     super.iconUrl,
     super.id,
@@ -99,7 +100,6 @@ class OpenUrlAction extends ISelectAction {
     super.tooltip,
     super.isEnabled,
     super.mode,
-    required this.url,
   });
 
   @override
@@ -143,6 +143,7 @@ class ToggleVisibilityAction extends ISelectAction {
   final List<TargetElement> targetElements;
 
   ToggleVisibilityAction({
+    required this.targetElements,
     super.title,
     super.iconUrl,
     super.id,
@@ -151,7 +152,6 @@ class ToggleVisibilityAction extends ISelectAction {
     super.tooltip,
     super.isEnabled,
     super.mode,
-    required this.targetElements,
   });
 
   @override

@@ -27,7 +27,7 @@ class TimeInputBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   }
 
   TimeInputBuilderV1Dot0(String id) {
-    setId(id);
+    _id = id;
   }
 
   InputTime build() {
