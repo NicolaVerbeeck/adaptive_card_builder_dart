@@ -1,5 +1,6 @@
 part of 'element_builder.dart';
 
+/// A mixin class for common input elements (from 1.3)
 abstract mixin class BaseInputElementBuilderV1Dot3 {
   @protected
   String? _errorMessage;
@@ -8,15 +9,18 @@ abstract mixin class BaseInputElementBuilderV1Dot3 {
   @protected
   String? _label;
 
-  void setErrorMessage(String errorMessage) {
+  /// Set the error message for the input element
+  set errorMessage(String errorMessage) {
     _errorMessage = errorMessage;
   }
 
-  void setIsRequired(bool isRequired) {
+  /// Set whether the input element is required
+  set isRequired(bool isRequired) {
     _isRequired = isRequired;
   }
 
-  void setLabel(String label) {
+  /// Set the label for the input element
+  set label(String label) {
     _label = label;
   }
 }

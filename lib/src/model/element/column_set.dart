@@ -114,10 +114,11 @@ class Column {
         (value) => value is Container
             ? Union.left(Column.fromContainer(value))
             : (value is Column
-                ? Union.left(value as Column)
+                ? Union.left(value! as Column)
                 : throw ArgumentError(
-                    'Fallback for column must be column or container')),
-        (value) => Union.right(value!),
+                    'Fallback for column must be column or container',
+                  )),
+        Union.right,
       ),
       minHeight: container.minHeight,
       rtl: container.rtl,

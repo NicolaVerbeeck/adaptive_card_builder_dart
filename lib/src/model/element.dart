@@ -41,7 +41,7 @@ sealed class Element {
 
   Map<String, dynamic> toJson() {
     final base = <String, dynamic>{
-      if (fallback?.right == true) 'fallback': 'drop',
+      if (fallback?.right ?? false) 'fallback': 'drop',
       if (fallback?.left != null) 'fallback': fallback!.left!.toJson(),
       if (height != null) 'height': height!.toJson(),
       if (separator != null) 'separator': separator,

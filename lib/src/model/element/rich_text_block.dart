@@ -20,10 +20,12 @@ class RichTextBlock extends Element {
     container.addAll({
       'type': 'RichTextBlock',
       'inlines': inlines
-          .map((e) => e.fold(
-                (value) => value,
-                (value) => value!.toJson(),
-              ))
+          .map(
+            (e) => e.fold(
+              (value) => value,
+              (value) => value!.toJson(),
+            ),
+          )
           .toList(),
       if (horizontalAlignment != null)
         'horizontalAlignment': horizontalAlignment!.toJson(),

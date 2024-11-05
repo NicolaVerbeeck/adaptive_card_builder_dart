@@ -9,15 +9,15 @@ class ToggleInputBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   @protected
   String? _valueOn;
 
-  void setValue(String value) {
+  set value(String value) {
     _value = value;
   }
 
-  void setValueOff(String valueOff) {
+  set valueOff(String valueOff) {
     _valueOff = valueOff;
   }
 
-  void setValueOn(String valueOn) {
+  set valueOn(String valueOn) {
     _valueOn = valueOn;
   }
 
@@ -68,7 +68,7 @@ class ToggleInputBuilderV1Dot2 extends ToggleInputBuilderV1Dot1
   @protected
   bool? _wrap;
 
-  void setWrap(bool wrap) {
+  set wrap(bool wrap) {
     _wrap = wrap;
   }
 

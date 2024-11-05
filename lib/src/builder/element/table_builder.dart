@@ -1,5 +1,6 @@
 part of 'element_builder.dart';
 
+/// Builder class for [Table]s for adaptive cards version 1.5
 class TableBuilderV1Dot5
     with
         BaseElementBuilderV1Dot0,
@@ -20,6 +21,7 @@ class TableBuilderV1Dot5
   @protected
   VerticalAlignment? _verticalCellContentAlignment;
 
+  /// Adds a column to the table
   void addColumn(void Function(TableColumnDefinitionBuilderV1Dot5) build) {
     final builder = TableColumnDefinitionBuilderV1Dot5();
     build(builder);
@@ -27,6 +29,7 @@ class TableBuilderV1Dot5
     _columns!.add(builder.build());
   }
 
+  /// Adds a row to the table
   void addRow(void Function(TableRowBuilderV1Dot5) build) {
     final builder = TableRowBuilderV1Dot5();
     build(builder);
@@ -34,28 +37,36 @@ class TableBuilderV1Dot5
     _rows!.add(builder.build());
   }
 
-  void setFirstRowAsHeader(bool firstRowAsHeader) {
+  /// Sets whether the first row should be treated as a header
+  set firstRowAsHeader(bool firstRowAsHeader) {
     _firstRowAsHeader = firstRowAsHeader;
   }
 
-  void setShowGridLines(bool showGridLines) {
+  /// Sets whether to show grid lines
+  set showGridLines(bool showGridLines) {
     _showGridLines = showGridLines;
   }
 
-  void setGridStyle(ContainerStyle gridStyle) {
+  /// Sets the grid style
+  set gridStyle(ContainerStyle gridStyle) {
     _gridStyle = gridStyle;
   }
 
-  void setHorizontalCellContentAlignment(
-      HorizontalAlignment horizontalCellContentAlignment) {
+  /// Sets the horizontal cell content alignment
+  set horizontalCellContentAlignment(
+    HorizontalAlignment horizontalCellContentAlignment,
+  ) {
     _horizontalCellContentAlignment = horizontalCellContentAlignment;
   }
 
-  void setVerticalCellContentAlignment(
-      VerticalAlignment verticalCellContentAlignment) {
+  /// Sets the vertical cell content alignment
+  set verticalCellContentAlignment(
+    VerticalAlignment verticalCellContentAlignment,
+  ) {
     _verticalCellContentAlignment = verticalCellContentAlignment;
   }
 
+  /// Builds the [Table] with the provided configuration
   Table build() {
     return Table(
       columns: _columns,
@@ -75,6 +86,7 @@ class TableBuilderV1Dot5
   }
 }
 
+/// Builder class for [TableCell]s for adaptive cards version 1.5
 class TableCellBuilderV1Dot5
     with SelectActionBuilderHelperV1Dot5, ElementContainerHelperV1Dot5 {
   @protected
@@ -104,35 +116,44 @@ class TableCellBuilderV1Dot5
     _selectAction = selectAction;
   }
 
-  void setStyle(ContainerStyle style) {
+  /// Sets the style of the cell
+  set style(ContainerStyle style) {
     _style = style;
   }
 
-  void setVerticalContentAlignment(
-      VerticalContentAlignment verticalContentAlignment) {
+  /// Sets the vertical content alignment
+  set verticalContentAlignment(
+    VerticalContentAlignment verticalContentAlignment,
+  ) {
     _verticalContentAlignment = verticalContentAlignment;
   }
 
-  void setBleed(bool bleed) {
+  /// Sets whether the cell should bleed
+  set bleed(bool bleed) {
     _bleed = bleed;
   }
 
-  void setBackgroundImageUri(Uri uri) {
+  /// Sets the background image of the cell to the provided URI
+  set backgroundImageUri(Uri uri) {
     _backgroundImage = Union.right(uri);
   }
 
-  void setBackgroundImage(BackgroundImage backgroundImage) {
+  /// Sets the background image of the cell
+  set backgroundImage(BackgroundImage backgroundImage) {
     _backgroundImage = Union.left(backgroundImage);
   }
 
-  void setMinHeight(String minHeight) {
+  /// Sets the minimum height of the cell
+  set minHeight(String minHeight) {
     _minHeight = minHeight;
   }
 
-  void setRtl(bool rtl) {
+  /// Sets whether the cell should be right-to-left
+  set rtl(bool rtl) {
     _rtl = rtl;
   }
 
+  /// Builds the [TableCell] with the provided configuration
   TableCell build() {
     return TableCell(
       items: _items,
@@ -147,6 +168,7 @@ class TableCellBuilderV1Dot5
   }
 }
 
+/// Builder class for [TableColumnDefinition]s for adaptive cards version 1.5
 class TableColumnDefinitionBuilderV1Dot5 {
   @protected
   HorizontalAlignment? _horizontalCellContentAlignment;
@@ -155,24 +177,31 @@ class TableColumnDefinitionBuilderV1Dot5 {
   @protected
   Union<String, num>? _width;
 
-  void setWidthString(String width) {
+  /// Sets the width of the column as a string
+  set widthString(String width) {
     _width = Union.left(width);
   }
 
-  void setWidthNum(num width) {
+  /// Sets the width of the column as a number
+  set widthNum(num width) {
     _width = Union.right(width);
   }
 
-  void setHorizontalCellContentAlignment(
-      HorizontalAlignment horizontalCellContentAlignment) {
+  /// Sets the horizontal cell content alignment
+  set horizontalCellContentAlignment(
+    HorizontalAlignment horizontalCellContentAlignment,
+  ) {
     _horizontalCellContentAlignment = horizontalCellContentAlignment;
   }
 
-  void setVerticalCellContentAlignment(
-      VerticalAlignment verticalCellContentAlignment) {
+  /// Sets the vertical cell content alignment
+  set verticalCellContentAlignment(
+    VerticalAlignment verticalCellContentAlignment,
+  ) {
     _verticalCellContentAlignment = verticalCellContentAlignment;
   }
 
+  /// Builds the [TableColumnDefinition] with the provided configuration
   TableColumnDefinition build() {
     return TableColumnDefinition(
       width: _width,
@@ -182,6 +211,7 @@ class TableColumnDefinitionBuilderV1Dot5 {
   }
 }
 
+/// Builder class for [TableRow]s for adaptive cards version 1.5
 class TableRowBuilderV1Dot5 {
   @protected
   List<TableCell>? _cells;
@@ -192,6 +222,7 @@ class TableRowBuilderV1Dot5 {
   @protected
   ContainerStyle? _style;
 
+  /// Adds a cell to the row
   void addCell(void Function(TableCellBuilderV1Dot5) build) {
     final builder = TableCellBuilderV1Dot5();
     build(builder);
@@ -199,20 +230,26 @@ class TableRowBuilderV1Dot5 {
     _cells!.add(builder.build());
   }
 
-  void setHorizontalCellContentAlignment(
-      HorizontalAlignment horizontalCellContentAlignment) {
+  /// Sets the horizontal cell content alignment
+  set horizontalCellContentAlignment(
+    HorizontalAlignment horizontalCellContentAlignment,
+  ) {
     _horizontalCellContentAlignment = horizontalCellContentAlignment;
   }
 
-  void setVerticalCellContentAlignment(
-      VerticalAlignment verticalCellContentAlignment) {
+  /// Sets the vertical cell content alignment
+  set verticalCellContentAlignment(
+    VerticalAlignment verticalCellContentAlignment,
+  ) {
     _verticalCellContentAlignment = verticalCellContentAlignment;
   }
 
-  void setStyle(ContainerStyle style) {
+  /// Sets the style of the row
+  set style(ContainerStyle style) {
     _style = style;
   }
 
+  /// Builds the [TableRow] with the provided configuration
   TableRow build() {
     return TableRow(
       cells: _cells,

@@ -47,9 +47,9 @@ class AdaptiveCard {
       if (body != null) 'body': body!.map((e) => e.toJson()).toList(),
       if (selectAction != null) 'selectAction': selectAction!.toJson(),
       if (fallbackText != null) 'fallbackText': fallbackText,
-      if (backgroundImage?.isLeft == true)
+      if (backgroundImage?.isLeft ?? false)
         'backgroundImage': backgroundImage!.left!.toJson(),
-      if (backgroundImage?.isRight == true)
+      if (backgroundImage?.isRight ?? false)
         'backgroundImage': backgroundImage!.right!.toString(),
       if (minHeight != null) 'minHeight': minHeight,
       if (rtl != null) 'rtl': rtl,

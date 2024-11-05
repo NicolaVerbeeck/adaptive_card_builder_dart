@@ -68,8 +68,9 @@ void main() {
     });
     test('addOpenUrlAction', () {
       sut.addOpenUrlAction(Uri.parse('https://example.com'), (builder) {
-        builder.id = 'some-id';
-        builder.title = 'a title';
+        builder
+          ..id = 'some-id'
+          ..title = 'a title';
       });
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',

@@ -1,5 +1,6 @@
 part of 'element_builder.dart';
 
+/// Builder class for text blocks for adaptive cards version 1.0
 class TextBlockBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   @protected
   final String _text;
@@ -18,36 +19,45 @@ class TextBlockBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   @protected
   bool? _wrap;
 
-  void setColor(Colors color) {
+  /// Sets the color of the text
+  set color(Colors color) {
     _color = color;
   }
 
-  void setHorizontalAlignment(HorizontalAlignment horizontalAlignment) {
+  /// Sets the horizontal alignment of the text
+  set horizontalAlignment(HorizontalAlignment horizontalAlignment) {
     _horizontalAlignment = horizontalAlignment;
   }
 
-  void setIsSubtle(bool isSubtle) {
+  /// Sets whether the text is subtle
+  set isSubtle(bool isSubtle) {
     _isSubtle = isSubtle;
   }
 
-  void setMaxLines(int maxLines) {
+  /// Sets the maximum number of lines
+  set maxLines(int maxLines) {
     _maxLines = maxLines;
   }
 
-  void setSize(FontSize size) {
+  /// Sets the font size
+  set size(FontSize size) {
     _size = size;
   }
 
-  void setWeight(FontWeight weight) {
+  /// Sets the font weight
+  set weight(FontWeight weight) {
     _weight = weight;
   }
 
-  void setWrap(bool wrap) {
+  /// Sets whether the text should wrap
+  set wrap(bool wrap) {
     _wrap = wrap;
   }
 
+  /// Constructor that sets the text
   TextBlockBuilderV1Dot0(this._text);
 
+  /// Builds the [TextBlock] with the provided configuration
   TextBlock build() {
     return TextBlock(
       text: _text,
@@ -65,8 +75,10 @@ class TextBlockBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   }
 }
 
+/// Builder class for text blocks for adaptive cards version 1.1
 class TextBlockBuilderV1Dot1 extends TextBlockBuilderV1Dot0
     with BaseElementBuilderV1Dot1 {
+  /// Constructor that sets the text
   TextBlockBuilderV1Dot1(super.text);
 
   @override
@@ -88,15 +100,18 @@ class TextBlockBuilderV1Dot1 extends TextBlockBuilderV1Dot0
   }
 }
 
+/// Builder class for text blocks for adaptive cards version 1.2
 class TextBlockBuilderV1Dot2 extends TextBlockBuilderV1Dot1
     with BaseElementBuilderV1Dot2 {
   @protected
   FontType? _fontType;
 
-  void setFontType(FontType fontType) {
+  /// Sets the font type
+  set fontType(FontType fontType) {
     _fontType = fontType;
   }
 
+  /// Constructor that sets the text
   TextBlockBuilderV1Dot2(super.text);
 
   @override
@@ -121,14 +136,17 @@ class TextBlockBuilderV1Dot2 extends TextBlockBuilderV1Dot1
   }
 }
 
+/// Builder class for text blocks for adaptive cards version 1.5
 class TextBlockBuilderV1Dot5 extends TextBlockBuilderV1Dot2 {
   @protected
   TextBlockStyle? _style;
 
-  void setStyle(TextBlockStyle style) {
+  /// Sets the style of the text block
+  set style(TextBlockStyle style) {
     _style = style;
   }
 
+  /// Constructor that sets the text
   TextBlockBuilderV1Dot5(super.text);
 
   @override

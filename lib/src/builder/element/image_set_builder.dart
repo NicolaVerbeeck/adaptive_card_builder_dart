@@ -1,21 +1,25 @@
 part of 'element_builder.dart';
 
+/// A builder for creating an image set element for Adaptive Cards version 1.0.
 class ImageSetBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   @protected
   final _images = <Image>[];
   @protected
   ImageSize? _imageSize;
 
-  void setImageSize(ImageSize imageSize) {
+  /// Sets the image size for all images in the set.
+  set imageSize(ImageSize imageSize) {
     _imageSize = imageSize;
   }
 
+  /// Adds an image to the set.
   void addImage(Uri url, void Function(ImageBuilderV1Dot0) builder) {
     final imageBuilder = ImageBuilderV1Dot0(url);
     builder(imageBuilder);
     _images.add(imageBuilder.build());
   }
 
+  /// Builds the image set element with the provided configuration.
   ImageSet build() {
     return ImageSet(
       images: _images,
@@ -27,6 +31,7 @@ class ImageSetBuilderV1Dot0 with BaseElementBuilderV1Dot0 {
   }
 }
 
+/// A builder for creating an image set element for Adaptive Cards version 1.1.
 class ImageSetBuilderV1Dot1 extends ImageSetBuilderV1Dot0
     with BaseElementBuilderV1Dot1 {
   @override
@@ -49,6 +54,7 @@ class ImageSetBuilderV1Dot1 extends ImageSetBuilderV1Dot0
   }
 }
 
+/// A builder for creating an image set element for Adaptive Cards version 1.2.
 class ImageSetBuilderV1Dot2 extends ImageSetBuilderV1Dot1
     with BaseElementBuilderV1Dot2 {
   @override
