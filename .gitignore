@@ -17,6 +17,7 @@ doc/api/
 
 # dotenv environment variables file
 .env*
+./idea/
 
 # Avoid committing generated Javascript files:
 *.dart.js
@@ -133,9 +134,6 @@ fabric.properties
 # that are supposed to be shared within teams.
 
 .idea/*
-
-!.idea/codeStyles
-!.idea/runConfigurations
 
 ### Linux ###
 *~

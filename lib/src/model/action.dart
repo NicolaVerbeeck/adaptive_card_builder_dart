@@ -2,16 +2,34 @@ import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/union.dart';
 import 'package:meta/meta.dart';
 
+/// The Actions for an [AdaptiveCard]
 sealed class CardAction {
+  /// The title of the action
   final String? title;
+
+  /// The icon of the action
   final Uri? iconUrl;
+
+  /// The id of the action
   final String? id;
+
+  /// The style of the action
   final ActionStyle? style;
+
+  /// The fallback action. Either another action or a
+  /// boolean indicating that the action should be dropped
   final Union<CardAction, bool>? fallback;
+
+  /// The tooltip of the action
   final String? tooltip;
+
+  /// Whether the action is enabled
   final bool? isEnabled;
+
+  /// The mode of the action
   final ActionMode? mode;
 
+  /// Creates a [CardAction]
   CardAction({
     this.title,
     this.iconUrl,
@@ -23,6 +41,7 @@ sealed class CardAction {
     this.mode,
   });
 
+  /// Converts the action to a json representation
   Map<String, dynamic> toJson() {
     final base = <String, dynamic>{
       if (title != null) 'title': title,
@@ -39,11 +58,14 @@ sealed class CardAction {
     return base;
   }
 
+  /// Populates the specific fields of the action not shared with the base
   @protected
   void populateJson(Map<String, dynamic> container);
 }
 
+/// Base class for actions that fall into the 'select' category
 abstract class ISelectAction extends CardAction {
+  /// Creates an [ISelectAction]
   ISelectAction({
     super.title,
     super.iconUrl,
@@ -56,11 +78,18 @@ abstract class ISelectAction extends CardAction {
   });
 }
 
+/// Gathers input fields, merges with optional data field, and sends an event to the client
 class ExecuteAction extends ISelectAction {
+  /// The card author-defined verb associated with this action
   final String? verb;
+
+  /// Initial data that input fields will be combined with. Must be a JSON-serializable object
   final dynamic data;
+
+  /// Controls which inputs are associated with the action
   final AssociatedInputs? associatedInputs;
 
+  /// Creates an [ExecuteAction]
   ExecuteAction({
     super.title,
     super.iconUrl,
@@ -87,9 +116,13 @@ class ExecuteAction extends ISelectAction {
   }
 }
 
+/// When invoked, show the given url either by launching it in an
+/// external web browser or showing within an embedded web browser.
 class OpenUrlAction extends ISelectAction {
+  /// The url to open
   final Uri url;
 
+  /// Creates an [OpenUrlAction]
   OpenUrlAction({
     required this.url,
     super.title,
@@ -111,10 +144,16 @@ class OpenUrlAction extends ISelectAction {
   }
 }
 
+/// Gathers input fields, merges with optional data field,
+/// and sends an event to the client
 class SubmitAction extends ISelectAction {
+  /// Initial data that input fields will be combined with. Must be a JSON-serializable object
   final dynamic data;
+
+  /// Controls which inputs are associated with the action
   final AssociatedInputs? associatedInputs;
 
+  /// Creates a [SubmitAction]
   SubmitAction({
     super.title,
     super.iconUrl,
@@ -139,9 +178,12 @@ class SubmitAction extends ISelectAction {
   }
 }
 
+/// Toggles the visibility of elements
 class ToggleVisibilityAction extends ISelectAction {
+  /// The elements to toggle
   final List<TargetElement> targetElements;
 
+  /// Creates a [ToggleVisibilityAction]
   ToggleVisibilityAction({
     required this.targetElements,
     super.title,
@@ -163,9 +205,12 @@ class ToggleVisibilityAction extends ISelectAction {
   }
 }
 
+/// Shows a card when invoked
 class ShowCardAction extends CardAction {
+  /// The card to show
   final AdaptiveCard? card;
 
+  /// Creates a [ShowCardAction]
   ShowCardAction({
     super.title,
     super.iconUrl,
@@ -187,15 +232,21 @@ class ShowCardAction extends CardAction {
   }
 }
 
+/// The target element to toggle
 class TargetElement {
+  /// The id of the element
   final String elementId;
+
+  /// Whether the element should be visible or not. Null means toggle
   final bool? isVisible;
 
+  /// Creates a [TargetElement]
   TargetElement({
     required this.elementId,
-    required this.isVisible,
+    this.isVisible,
   });
 
+  /// Converts the target element to a json representation
   Map<String, dynamic> toJson() {
     return {
       'elementId': elementId,
@@ -204,12 +255,19 @@ class TargetElement {
   }
 }
 
+/// The style of the action
 enum ActionStyle {
+  /// Default style
   defaultStyle,
+
+  /// Positive style
   positiveStyle,
+
+  /// Destructive style
   destructiveStyle,
   ;
 
+  /// Converts the style to a json representation
   String toJson() => switch (this) {
         ActionStyle.defaultStyle => 'default',
         ActionStyle.positiveStyle => 'positive',
@@ -217,22 +275,32 @@ enum ActionStyle {
       };
 }
 
+/// The mode of the action
 enum ActionMode {
+  /// Primary mode
   primary,
+
+  /// Secondary mode
   secondary,
   ;
 
+  /// Converts the mode to a json representation
   String toJson() => switch (this) {
         ActionMode.primary => 'primary',
         ActionMode.secondary => 'secondary',
       };
 }
 
+/// Controls which inputs are associated with the action
 enum AssociatedInputs {
+  /// Inputs on the current card and any parent cards will be validated and submitted for this Action
   auto,
+
+  /// None of the inputs will be validated or submitted for this Action
   none,
   ;
 
+  /// Converts the associated inputs to a json representation
   String toJson() => switch (this) {
         AssociatedInputs.auto => 'auto',
         AssociatedInputs.none => 'none',
