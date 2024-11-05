@@ -34,7 +34,7 @@ class ColumnSetBuilderV1Dot1 extends ColumnSetBuilderV1Dot0
   ISelectAction? _selectAction;
 
   @override
-  void setSelectAction(ISelectAction selectAction) {
+  set selectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
 

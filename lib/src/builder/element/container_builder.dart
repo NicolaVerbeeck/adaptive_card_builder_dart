@@ -38,7 +38,7 @@ class ContainerBuilderV1Dot1 extends ContainerBuilderV1Dot0
   VerticalContentAlignment? _verticalContentAlignment;
 
   @override
-  void setSelectAction(ISelectAction selectAction) {
+  set selectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
 

@@ -100,7 +100,7 @@ class TableCellBuilderV1Dot5
   }
 
   @override
-  void setSelectAction(ISelectAction selectAction) {
+  set selectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
 

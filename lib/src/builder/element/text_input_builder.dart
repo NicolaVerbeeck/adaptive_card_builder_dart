@@ -100,7 +100,7 @@ class TextInputBuilderV1Dot2 extends TextInputBuilderV1Dot1
 
   @override
   @protected
-  void setSelectAction(ISelectAction selectAction) {
+  set selectAction(ISelectAction selectAction) {
     setInlineAction(selectAction);
   }
 }

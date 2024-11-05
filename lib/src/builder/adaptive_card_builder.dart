@@ -1,6 +1,7 @@
 import 'package:adaptive_card_builder/src/builder/action/versioned_action_builder.dart';
 import 'package:adaptive_card_builder/src/builder/background_image_builder.dart';
 import 'package:adaptive_card_builder/src/builder/element/element_container_helper.dart';
+import 'package:adaptive_card_builder/src/builder/element/select_action_builder_helper.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
 import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/authentication.dart';
@@ -10,20 +11,28 @@ import 'package:adaptive_card_builder/src/model/refresh.dart';
 import 'package:adaptive_card_builder/src/model/union.dart';
 import 'package:meta/meta.dart';
 
+/// Factory for creating adaptive card builders, per version
 abstract class AdaptiveCardBuilderFactory {
+  /// Creates an adaptive card builder for version 1.0
   static AdaptiveCardBuilderV1Dot0 v1_0() => AdaptiveCardBuilderV1Dot0();
 
+  /// Creates an adaptive card builder for version 1.1
   static AdaptiveCardBuilderV1Dot1 v1_1() => AdaptiveCardBuilderV1Dot1();
 
+  /// Creates an adaptive card builder for version 1.2
   static AdaptiveCardBuilderV1Dot2 v1_2() => AdaptiveCardBuilderV1Dot2();
 
+  /// Creates an adaptive card builder for version 1.3
   static AdaptiveCardBuilderV1Dot2 v1_3() => AdaptiveCardBuilderV1Dot3();
 
+  /// Creates an adaptive card builder for version 1.4
   static AdaptiveCardBuilderV1Dot4 v1_4() => AdaptiveCardBuilderV1Dot4();
 
+  /// Creates an adaptive card builder for version 1.5
   static AdaptiveCardBuilderV1Dot5 v1_5() => AdaptiveCardBuilderV1Dot5();
 }
 
+/// Adaptive card builder that builds adaptive cards for version 1.0
 class AdaptiveCardBuilderV1Dot0
     with V1Dot0ActionBuilder, ElementContainerHelperV1Dot0 {
   @protected
@@ -51,22 +60,27 @@ class AdaptiveCardBuilderV1Dot0
     _actions!.add(action);
   }
 
-  void setFallbackText(String fallbackText) {
+  /// Sets the fallback text for the adaptive card
+  set fallbackText(String fallbackText) {
     _fallbackText = fallbackText;
   }
 
-  void setBackgroundImageUri(Uri backgroundImage) {
+  /// Sets the background image for the adaptive card
+  set backgroundImageUri(Uri backgroundImage) {
     _backgroundImage = Union.right(backgroundImage);
   }
 
-  void setSpeak(String speak) {
+  /// Sets the speak property for the adaptive card
+  set speak(String speak) {
     _speak = speak;
   }
 
-  void setLang(String lang) {
+  /// Sets the lang property for the adaptive card
+  set lang(String lang) {
     _lang = lang;
   }
 
+  /// Builds the adaptive card with the provided parameters
   AdaptiveCard build() {
     return AdaptiveCard(
       version: AdaptiveCardVersion.v1_0,
@@ -80,19 +94,26 @@ class AdaptiveCardBuilderV1Dot0
   }
 }
 
+/// Adaptive card builder that builds adaptive cards for version 1.1
 class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0
-    with V1Dot1ActionBuilder, ElementContainerHelperV1Dot1 {
+    with
+        V1Dot1ActionBuilder,
+        ElementContainerHelperV1Dot1,
+        SelectActionBuilderHelperV1Dot1 {
   @protected
   VerticalContentAlignment? _verticalContentAlignment;
   @protected
   ISelectAction? _selectAction;
 
-  void setVerticalContentAlignment(
-      VerticalContentAlignment verticalContentAlignment) {
+  /// Sets the vertical content alignment for the adaptive card
+  set verticalContentAlignment(
+    VerticalContentAlignment verticalContentAlignment,
+  ) {
     _verticalContentAlignment = verticalContentAlignment;
   }
 
-  void setSelectAction(ISelectAction selectAction) {
+  @override
+  set selectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
 
@@ -113,16 +134,23 @@ class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0
 }
 
 class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1
-    with V1Dot2ActionBuilder, ElementContainerHelperV1Dot2 {
+    with
+        V1Dot2ActionBuilder,
+        ElementContainerHelperV1Dot2,
+        SelectActionBuilderHelperV1Dot2 {
   @protected
   String? _minHeight;
 
-  void setMinHeight(String minHeight) {
+  /// Sets the minimum height for the adaptive card
+  set minHeight(String minHeight) {
     _minHeight = minHeight;
   }
 
+  /// Sets the background image for the adaptive card
   void setBackgroundImage(
-      Uri url, void Function(BackgroundImageBuilder) backgroundImage) {
+    Uri url,
+    void Function(BackgroundImageBuilder) backgroundImage,
+  ) {
     final builder = BackgroundImageBuilder(url);
     backgroundImage(builder);
     _backgroundImage = Union.left(builder.build());
@@ -165,7 +193,10 @@ class AdaptiveCardBuilderV1Dot3 extends AdaptiveCardBuilderV1Dot2
 }
 
 class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot3
-    with V1Dot4ActionBuilder, ElementContainerHelperV1Dot4 {
+    with
+        V1Dot4ActionBuilder,
+        ElementContainerHelperV1Dot4,
+        SelectActionBuilderHelperV1Dot4 {
   @protected
   Refresh? _refresh;
   @protected
@@ -199,7 +230,10 @@ class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot3
 }
 
 class AdaptiveCardBuilderV1Dot5 extends AdaptiveCardBuilderV1Dot4
-    with V1Dot5ActionBuilder, ElementContainerHelperV1Dot5 {
+    with
+        V1Dot5ActionBuilder,
+        ElementContainerHelperV1Dot5,
+        SelectActionBuilderHelperV1Dot5 {
   @protected
   bool? _rtl;
 

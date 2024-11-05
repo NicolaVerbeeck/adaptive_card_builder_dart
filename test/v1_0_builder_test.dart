@@ -10,7 +10,7 @@ void main() {
     });
 
     test('setBackgroundImageUri', () {
-      sut.setBackgroundImageUri(Uri.parse('https://example.com/image.jpg'));
+      sut.backgroundImageUri = Uri.parse('https://example.com/image.jpg');
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',
         'version': '1.0',
@@ -19,7 +19,7 @@ void main() {
       });
     });
     test('setFallbackText', () {
-      sut.setFallbackText('Fallback text');
+      sut.fallbackText = 'Fallback text';
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',
         'version': '1.0',
@@ -28,7 +28,7 @@ void main() {
       });
     });
     test('setSpeak', () {
-      sut.setSpeak('Speak text');
+      sut.speak = 'Speak text';
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',
         'version': '1.0',
@@ -37,7 +37,7 @@ void main() {
       });
     });
     test('setLang', () {
-      sut.setLang('EN');
+      sut.lang = 'EN';
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',
         'version': '1.0',
@@ -47,9 +47,10 @@ void main() {
     });
     test('addSubmitAction', () {
       sut.addSubmitAction((builder) {
-        builder.setId('some-id');
-        builder.setData('any data');
-        builder.setTitle('a title');
+        builder
+          ..id = 'some-id'
+          ..data = 'any data'
+          ..title = 'a title';
       });
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',
@@ -67,8 +68,8 @@ void main() {
     });
     test('addOpenUrlAction', () {
       sut.addOpenUrlAction(Uri.parse('https://example.com'), (builder) {
-        builder.setId('some-id');
-        builder.setTitle('a title');
+        builder.id = 'some-id';
+        builder.title = 'a title';
       });
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',
@@ -86,11 +87,12 @@ void main() {
     });
     test('addShowCardAction', () {
       sut.addShowCardAction((builder) {
-        builder.setId('some-id');
-        builder.setTitle('a title');
-        builder.setCard((childBuilder) {
-          childBuilder.setLang('DE');
-        });
+        builder
+          ..id = 'some-id'
+          ..title = 'a title'
+          ..card = (childBuilder) {
+            childBuilder.lang = 'DE';
+          };
       });
       expect(sut.build().toJson(), {
         'type': 'AdaptiveCard',

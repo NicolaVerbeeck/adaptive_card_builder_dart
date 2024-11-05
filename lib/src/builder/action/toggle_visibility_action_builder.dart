@@ -1,5 +1,6 @@
 part of 'action_builder.dart';
 
+/// Helper mixin for building toggle visibility card actions v 1.2
 class ToggleVisibilityActionBuilderV1Dot2
     with
         BaseActionBuilderV1Dot0,
@@ -7,12 +8,10 @@ class ToggleVisibilityActionBuilderV1Dot2
         BaseActionBuilderV1Dot2 {
   final List<TargetElement> _targetElements;
 
+  /// Constructor that takes a list of target elements
   ToggleVisibilityActionBuilderV1Dot2(this._targetElements);
 
-  void addTargetElement(TargetElement targetElement) {
-    _targetElements.add(targetElement);
-  }
-
+  /// Builds the [ToggleVisibilityAction] with the provided parameters
   ToggleVisibilityAction build() {
     return ToggleVisibilityAction(
       style: _style,
@@ -25,8 +24,10 @@ class ToggleVisibilityActionBuilderV1Dot2
   }
 }
 
+/// Helper mixin for building toggle visibility card actions v 1.5
 class ToggleVisibilityActionBuilderV1Dot5
     extends ToggleVisibilityActionBuilderV1Dot2 with BaseActionBuilderV1Dot5 {
+  /// Constructor that takes a list of target elements
   ToggleVisibilityActionBuilderV1Dot5(super.targetElements);
 
   @override

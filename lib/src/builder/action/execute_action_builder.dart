@@ -1,5 +1,6 @@
 part of 'action_builder.dart';
 
+/// Helper mixin for building execute actions v 1.4
 class ExecuteActionBuilderV1Dot4
     with
         BaseActionBuilderV1Dot0,
@@ -9,18 +10,22 @@ class ExecuteActionBuilderV1Dot4
   dynamic _data;
   AssociatedInputs? _associatedInputs;
 
-  void setVerb(String verb) {
+  /// Set the verb of the action
+  set verb(String verb) {
     _verb = verb;
   }
 
-  void setData(dynamic data) {
+  /// Set the data of the action
+  set data(dynamic data) {
     _data = data;
   }
 
-  void setAssociatedInputs(AssociatedInputs associatedInputs) {
+  /// Set the associated inputs of the action
+  set associatedInputs(AssociatedInputs associatedInputs) {
     _associatedInputs = associatedInputs;
   }
 
+  /// Builds the [ExecuteAction] with the provided configuration
   ExecuteAction build() {
     return ExecuteAction(
       title: _title,
@@ -34,6 +39,7 @@ class ExecuteActionBuilderV1Dot4
   }
 }
 
+/// Helper mixin for building execute actions v 1.5
 class ExecuteActionBuilderV1Dot5 extends ExecuteActionBuilderV1Dot4
     with BaseActionBuilderV1Dot5 {
   @override

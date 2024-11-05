@@ -68,7 +68,7 @@ class ImageBuilderV1Dot1 extends ImageBuilderV1Dot0
   }
 
   @override
-  void setSelectAction(ISelectAction selectAction) {
+  set selectAction(ISelectAction selectAction) {
     _selectAction = selectAction;
   }
 
