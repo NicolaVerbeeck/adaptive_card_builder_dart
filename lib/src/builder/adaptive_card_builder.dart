@@ -1,7 +1,9 @@
 import 'package:adaptive_card_builder/src/builder/action/versioned_action_builder.dart';
+import 'package:adaptive_card_builder/src/builder/authentication_builder.dart';
 import 'package:adaptive_card_builder/src/builder/background_image_builder.dart';
 import 'package:adaptive_card_builder/src/builder/element/element_container_helper.dart';
 import 'package:adaptive_card_builder/src/builder/element/select_action_builder_helper.dart';
+import 'package:adaptive_card_builder/src/builder/refresh_builder.dart';
 import 'package:adaptive_card_builder/src/model/action.dart';
 import 'package:adaptive_card_builder/src/model/adaptive_card.dart';
 import 'package:adaptive_card_builder/src/model/authentication.dart';
@@ -133,6 +135,7 @@ class AdaptiveCardBuilderV1Dot1 extends AdaptiveCardBuilderV1Dot0
   }
 }
 
+/// Adaptive card builder that builds adaptive cards for version 1.2
 class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1
     with
         V1Dot2ActionBuilder,
@@ -173,6 +176,7 @@ class AdaptiveCardBuilderV1Dot2 extends AdaptiveCardBuilderV1Dot1
   }
 }
 
+/// Adaptive card builder that builds adaptive cards for version 1.3
 class AdaptiveCardBuilderV1Dot3 extends AdaptiveCardBuilderV1Dot2
     with V1Dot2ActionBuilder, ElementContainerHelperV1Dot3 {
   @override
@@ -192,6 +196,7 @@ class AdaptiveCardBuilderV1Dot3 extends AdaptiveCardBuilderV1Dot2
   }
 }
 
+/// Adaptive card builder that builds adaptive cards for version 1.4
 class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot3
     with
         V1Dot4ActionBuilder,
@@ -202,12 +207,18 @@ class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot3
   @protected
   Authentication? _authentication;
 
-  void setRefresh(Refresh refresh) {
-    _refresh = refresh;
+  /// Sets the refresh property for the adaptive card
+  set refresh(void Function(RefreshBuilderV1Dot4) builder) {
+    final refreshBuilder = RefreshBuilderV1Dot4();
+    builder(refreshBuilder);
+    _refresh = refreshBuilder.build();
   }
 
-  void setAuthentication(Authentication authentication) {
-    _authentication = authentication;
+  /// Sets the authentication for the adaptive card
+  set authentication(void Function(AuthenticationBuilder) builder) {
+    final authenticationBuilder = AuthenticationBuilder();
+    builder(authenticationBuilder);
+    _authentication = authenticationBuilder.build();
   }
 
   @override
@@ -229,6 +240,7 @@ class AdaptiveCardBuilderV1Dot4 extends AdaptiveCardBuilderV1Dot3
   }
 }
 
+/// Adaptive card builder that builds adaptive cards for version 1.5
 class AdaptiveCardBuilderV1Dot5 extends AdaptiveCardBuilderV1Dot4
     with
         V1Dot5ActionBuilder,
@@ -237,8 +249,16 @@ class AdaptiveCardBuilderV1Dot5 extends AdaptiveCardBuilderV1Dot4
   @protected
   bool? _rtl;
 
-  void setRtl(bool rtl) {
+  /// Sets the rtl property for the adaptive card
+  set rtl(bool rtl) {
     _rtl = rtl;
+  }
+
+  @override
+  set refresh(void Function(RefreshBuilderV1Dot5) builder) {
+    final refreshBuilder = RefreshBuilderV1Dot5();
+    builder(refreshBuilder);
+    _refresh = refreshBuilder.build();
   }
 
   @override
