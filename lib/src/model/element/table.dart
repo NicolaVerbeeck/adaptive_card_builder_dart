@@ -65,7 +65,7 @@ class TableColumnDefinition {
         'width': width!.fold(
           (value) => value,
           (value) => value,
-        )
+        ),
     };
   }
 }
